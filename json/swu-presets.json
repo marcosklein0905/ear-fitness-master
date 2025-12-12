@@ -1,0 +1,80 @@
+[
+
+    {
+        "presetName": "ISO 226 - 1 Octave",
+        "usedFrequencies": [ 63, 125, 250, 500, 1000, 2000, 4000, 8000, 16000]
+    },
+    {
+        "presetName": "ISO 226 - 1/3 Octave",
+        "usedFrequencies": [ 40, 50, 63, 80, 100, 125, 200, 
+        250, 315, 400, 500, 630, 800, 1000, 1250, 1600, 2000, 
+        2500, 3150, 4000, 5000, 6300, 8000, 10000, 12500, 16000, 20000
+        ]
+    },
+    {
+        "presetName": "ISO 226 - 1 oct Lows",
+        "usedFrequencies": [ 63, 125, 250 ]
+    },
+    {
+        "presetName": "ISO 226 - 1 oct Mids",
+        "usedFrequencies": [ 250, 500, 1000, 2000 ]
+    },
+    {
+        "presetName": "ISO 226 - 1 oct Highs",
+        "usedFrequencies": [ 2000, 4000, 8000, 16000 ]
+    },
+    {
+        "presetName": "ISO 226 - 1 oct Mid/Highs",
+        "usedFrequencies": [ 250, 500, 1000, 2000, 4000, 8000, 16000 ]
+    },
+
+    {
+        "presetName": "1/3 Mids",
+        "usedFrequencies": [ 400, 500, 630, 800, 1000, 1250, 1600 ]
+    },
+
+    {
+        "presetName": "1/3 Low-Mids",
+        "usedFrequencies": [ 125, 200, 250, 315, 400 ]
+    },
+    {
+        "presetName": "1/3 Lows",
+        "usedFrequencies": [ 63, 80, 100, 125 ]
+    },
+
+    {
+        "presetName": "1/3 Low-Mids & Mids",
+        "usedFrequencies": [ 125, 200, 250, 315, 400, 500, 630, 800, 1000, 1250, 1600 ]
+    },
+    {
+        "presetName": "1/3 High-Mids",
+        "usedFrequencies": [ 2000, 2500, 3150, 4000, 5000 ]
+    
+    },
+
+    {
+        "presetName": "1/3 Highs",
+        "usedFrequencies": [ 5000, 6300, 8000, 10000, 12500, 16000]
+    },
+
+    {
+        "presetName": "1/3 Lows, Low-Mids & Mids",
+        "usedFrequencies": [ 63, 80, 100, 125, 200, 250, 315, 400, 500, 630, 800, 1000, 1250, 1600]
+    },
+
+    {
+        "presetName": "1/3 Lows, Low-Mids, Mids & High-Mids",
+        "usedFrequencies": [ 63, 80, 100, 125, 200, 250, 315, 400, 500, 630, 800, 1000, 1250, 1600, 2000, 2500, 3150, 4000, 5000]
+    },
+
+    {
+        "presetName": "C major scale",
+        "usedFrequencies": [65.2, 73.3, 82.4, 87.3, 97.9, 110, 123.4, 130.8, 146.8, 164.8, 174.6, 195.9, 220, 246.9, 261.6, 293.6, 329.6, 349.2, 391.9, 440, 493.8, 523.2, 587.3, 659.2, 698.4, 783.9, 880, 987.7, 1046.5]
+    },
+
+    {
+        "presetName": "A Octaves",
+        "usedFrequencies": [55, 110, 220, 440, 880, 1760, 3520]
+    }
+
+]

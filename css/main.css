@@ -1,0 +1,577 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+:root {
+    --color-white: #ffffff;
+    --color-light: #f0eff5;
+    --color-gray-light: #86848c;
+    --color-gray-dark: #56555e;
+    --color-dark: #27282f;
+    --color-primary: rgb(71, 7, 234);
+    --color-success: rgb(34, 202, 75);
+    --color-danger: rgb(255, 67, 54);
+    --color-warning: rgb(234, 181, 7);
+    --color-purple: rgb(160, 99, 245);
+
+    --color-primary-light: rgb(71, 7, 234, 0.2);
+    --color-success-light: rgb(34, 202, 75, 0.2);
+    --color-danger-light: rgb(255, 67, 54, 0.2);
+    --color-warning-light: rgb(234, 181, 7, 0.2);
+    --color-purple-light: rgb(160, 99, 245, 0.2);
+
+    --color-button-hover: rgb(71, 7, 234, 0.7);
+
+    --card-padding: 1.6rem;
+    --padding-1: 1rem;
+    --padding-2: 8px;
+
+    --card-border-radius: 1.6rem;
+    --border-radius-1: 1rem;
+    --border-radius-2: 6px;
+
+    --h1-font-size: 2.2rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.2rem;
+    --h4-font-size: 1rem;
+    --h5-font-size: 0.86rem;
+    --h5-font-weight: 500;
+    --p--font-size: 0.86rem;
+    --a-font-size: 1.7rem;
+    --sidebar-h4-font-weight: 500;
+
+    --small-font-weight: 300;
+    --small-font-size: 0.77rem;
+
+    --transition: all 400ms ease;
+
+    --box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+
+/* Dark Theme Variables */
+
+.dark-theme {
+
+    --color-white: #131316;
+    --color-light: #23232a;
+    --color-dark: #ddd;
+    --color-gray-dark: #adacb5;
+
+    --color-primary: rgb(251, 251, 64);
+    --color-button-hover: #e2b903;
+    --box-shadow: 0 0 12px rgba(100, 150, 255, 0.15);
+
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    border: 0;
+    appearance: none;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 12px;
+}
+
+body {
+    background: var(--color-light);
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    color: var(--color-dark);
+}
+
+h1 {
+    font-size: var(--h1-font-size);
+}
+
+h2 {
+    font-size: var(--h2-font-size);
+}
+
+h3 {
+    font-size: var(--h3-font-size);
+}
+
+h4 {
+    font-size: var(--h4-font-size);
+}
+
+h5 {
+    font-size: var(--h5-font-size);
+    font-weight: var(--h5-font-weight);
+}
+
+p {
+    font-size: var(--p--font-size);
+    color: var(--color-gray-dark);
+}
+
+small {
+    font-weight: var(--small-font-weight);
+    font-size: var(--small-font-size);
+}
+
+.text-muted {
+    color: var(--color-gray-light);
+}
+
+.primary {
+    color: var(--color-primary);
+}
+
+.danger {
+    color: var(--color-danger);
+}
+
+.success {
+    color: var(--color-success);
+}
+
+.purple {
+    color: var(--color-purple);
+}
+
+/* Color Backgrounds */
+
+.bg-primary {
+    background: var(--color-primary);
+    box-shadow: 0 0.8rem 0.8rem var(--color-primary-light);
+}
+
+.bg-danger {
+    background: var(--color-danger);
+    box-shadow: 0 0.8rem 0.8rem var(--color-danger-light);
+}
+
+.bg-success {
+    background: var(--color-success);
+    box-shadow: 0 0.8rem 0.8rem var(--color-success-light);
+}
+
+.bg-purple {
+    background: var(--color-purple);
+    box-shadow: 0 0.8rem 0.8rem var(--color-purple-light);
+}
+
+.bg-dark {
+    background: var(--color-dark);
+    box-shadow: 0 0.8rem 0.8rem var(0, 0, 0, 0.2);
+}
+
+/* ====================== HEADER ====================== */
+
+header {
+    width: 100%;
+    background: var(--color-white);
+    padding: 1rem 0;
+}
+
+.border-bottom-text {
+    border-bottom: 1px solid gray;
+    margin-bottom: 2em;
+}
+
+.top-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 96%;
+    margin: 0 auto;
+    flex-wrap: wrap; /* Allows wrapping to prevent breaking */
+    gap: 2rem; /* Reduce gap to allow more room */
+}
+
+
+header .top-area {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+}
+
+header .profile-area .theme-btn {
+    display: flex;
+    background: var(--color-light);
+    width: 8rem;
+    height: 2rem;
+    border-radius: var(--border-radius-2);
+    cursor: pointer;
+}
+
+header .profile-area .theme-btn span {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+header .profile-area .theme-btn .active {
+    background: var(--color-dark);
+    border-radius: var(--border-radius-2);
+    color: var(--color-white);
+}
+
+
+header .profile-area {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem; /* Reduce gap for small screens */
+    flex-wrap: wrap;
+}
+
+
+header .profile-area .profile-user {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+header .top-area button {
+    display: none;
+}
+
+.logo {
+    font-size: 2rem;
+}
+
+.logo-emphasis {
+    color: var(--color-primary);
+}
+
+/* PROFILE PICTURE  */
+
+.profile-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #333;
+}
+
+#profile-upload {
+    display: none;
+}
+
+
+.profile-img {
+    cursor: pointer;
+    padding: 1px;
+    border: 1px solid gray;
+}
+
+
+
+/* ============================ ASIDE & SIDEBAR =========================*/
+
+main {
+    display: grid;
+    grid-template-columns: 16rem auto 30rem;
+    gap: 2em;
+    width: 96%;
+    margin: 1rem auto 4rem;
+}
+
+main aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 88vh;
+}
+
+main aside button#close-btn {
+    display: none;
+}
+
+main aside .sidebar a {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    height: 4.2rem;
+    color: var(--color-gray-light);
+    position: relative;
+}
+
+main aside .sidebar a span {
+    font-size: var(--a-font-size);
+    margin-left: 2.8rem;
+    transition: var(--transition);
+
+}
+
+main aside .sidebar a.active {
+    background: var(--color-white);
+    color: var(--color-primary);
+}
+
+main aside .sidebar a.active:before {
+    content: '';
+    width: 6px;
+    height: 100%;
+    position: absolute;
+    background: var(--color-primary);
+}
+
+main aside .sidebar a:hover {
+    color: var(--color-primary);
+}
+
+main aside .sidebar a:hover span {
+    margin-left: 2rem;
+}
+
+main aside .sidebar h4 {
+    font-weight: var(--sidebar-h4-font-weight);
+}
+
+.activity-feed img {
+    aspect-ratio: 1 / 1; /* Maintain square aspect ratio */
+    object-fit: cover;
+}
+
+.session-entry {
+    border-bottom: 1px solid rgb(188, 184, 184);
+    padding: 0.3em;
+}
+
+.middle a {
+    color: var(--color-primary);
+}
+
+
+/* ======================== FOOTER STYLES ==================== */
+
+.fixed-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background: rgba(0, 0, 0, 0.8); 
+    text-align: center;
+    padding: 15px 0;
+    font-size: 20px;
+    z-index: 100;
+}
+
+.fixed-footer p {
+    color: rgb(195, 189, 189);
+    font-size: 12px;
+}
+
+.cc-license a {
+    text-decoration: none;
+    color: rgb(226, 221, 221);
+}
+
+.footer-emphasis {
+    font-weight: 600;
+    color: #eee;
+}
+
+
+/* ======================== MEDIA QUERIES FOR TABLETS ==================== */
+
+@media screen and (max-width: 1024px) {
+    
+    header .profile-area {
+        gap: 2rem;
+    }
+
+    header .top-area button#menu-btn {
+        display: inline;
+        background: transparent;
+        color: var(--color-dark);
+        border: none;
+    }
+
+    main {
+        grid-template-columns: 1fr;
+    }
+
+    main aside {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        z-index: 3;
+        background: var(--color-white);
+        width: 22rem;
+        height: 100vh;
+        box-shadow: 2rem 0 2rem var(--color-primary-light);
+        animation: showSidebar 500ms ease forwards;
+    }
+
+    @keyframes showSidebar {
+        to {
+            left: 0;
+        }
+        
+    }
+
+    main aside button#close-btn {
+        display: inline-block;
+        width: 3rem;
+        height: 3rem;
+        position: absolute;
+        border: none;
+        top: 1rem;
+        right: 2rem;
+        z-index: 4;
+        background: transparent;
+        color: var(--color-dark);
+    }
+
+    button:hover {
+        cursor: pointer;
+    }
+
+    main aside .sidebar {
+        margin-top: 4rem;
+    }
+}
+
+/* ======================== MEDIA QUERIES FOR MOBILES ==================== */
+
+@media screen and (max-width: 600px) {
+
+    header .profile-area {
+        gap: 2.6rem;
+    }
+
+    .sine-wave-trainer-data {
+        flex-direction: column;
+        align-items: flex-start;
+        max-width: 85%;
+    }
+
+    #missedFrequenciesChart, #scoreProgressChart {
+        border: 1px solid red;
+        margin: 0.7em;
+        border-radius: 1em;
+        max-width: 300px; 
+        max-height: 200px; 
+    }
+    
+    .eq-fit-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+}
+
+/* NEW  */
+
+@media screen and (max-width: 768px) {
+    .top-area {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: nowrap; /* Ensures items stay in one line */
+    }
+
+    .profile-area {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem; /* Further reduce gap */
+        max-width: 60%; /* Prevents overflowing */
+    }
+
+    header .top-area button#menu-btn {
+        display: block; /* Ensure menu button is visible */
+        margin-left: auto;
+        flex-shrink: 0;
+    }
+
+    /* NEW */
+
+    header .profile-area .theme-btn {
+        width: 6rem; /* Reduced from 8rem */
+        height: 1.5rem; /* Reduced from 2rem */
+    }
+    header .profile-area .theme-btn span {
+        font-size: 1rem; /* Reduce icon size */
+    }
+
+    header {
+        width: 100vw; /* Ensure it extends fully */
+        max-width: 100%;
+    }
+
+    .eq-fit-container {
+        max-width: 85%;
+    }
+    
+    
+}
+
+
+@media screen and (max-width: 600px) {
+    .top-area {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: nowrap;
+        gap: 1rem;
+    }
+
+    .logo {
+        font-size: 1.2rem; /* Reduce font size slightly */
+        flex-shrink: 0;
+    }
+
+    .profile-area {
+        max-width: 50%;
+        overflow: hidden;
+        flex-grow: 1;
+        justify-content: flex-end;
+    }
+
+
+    #menu-btn {
+        display: block;
+        margin-left: auto;
+        flex-shrink: 0;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .top-area {
+        gap: 0.5rem; /* Reduce gap to prevent overlap */
+    }
+
+    .logo {
+        font-size: 1.3rem; /* Reduce logo size */
+        white-space: nowrap; /* Prevent text wrapping */
+    }
+
+    .profile-area {
+        flex-wrap: nowrap;
+        max-width: 45%; /* Ensure it doesn't take too much space */
+    }
+
+    .profile-user img {
+        width: 40px; /* Reduce profile picture size */
+        height: 40px;
+    }
+
+    #profile-pic {
+        aspect-ratio: 1 / 1; /* Maintain square aspect ratio */
+        object-fit: cover;
+    }
+    
+}

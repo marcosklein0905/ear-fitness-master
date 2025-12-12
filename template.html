@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+
+  <!-- <link rel="stylesheet" href="css/multiband.css"> -->
+  <link rel="stylesheet" href="css/utils.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+
+
+
+  <title>TITLE</title>
+  <style>
+
+    .middle {
+        background: var(--color-white);
+        padding: 2em;
+        border-radius: var(--border-radius-2);
+        text-align: left;
+    }
+ 
+</style>
+</head>
+<body>
+
+<!-- TOP AREA -->
+
+<div class="container" id="dashboard-container">
+
+  <header>
+      <div class="top-area">
+          <p class="logo">ear <span  class="logo-emphasis">fitness</span> <span class="lite">lite</span></p>
+          <!-- Profile picture placeholder -->
+          
+          <div class="profile-area">
+
+              <div class="theme-btn">
+                  <span class="material-icons-sharp active">light_mode</span>
+                  <span class="material-icons-sharp">dark_mode</span>
+              </div>
+
+              <div class="profile-user">
+                  <img id="profile-pic" class="profile-img" src="img/default-avatar-profile-icon.avif" alt="Profile Picture">
+                  <input type="file" id="profile-upload" accept="image/*" style="display: none;">
+                  <p><span id="user-welcome"></span></p> <!-- Dynamic Username Display -->
+              </div>
+          </div>
+          <button id="menu-btn">
+              <span class="material-icons-sharp">menu</span>
+          </button>
+      </div> <!-- end of top area -->
+  </header>
+
+  <main>
+      <aside>
+          <button id="close-btn">
+              <span class="material-icons-sharp">close</span>
+          </button>
+          <div class="sidebar">
+
+              <a href="index.html">
+                  <span class="material-icons-sharp">dashboard</span>
+                  <h4>Dashboard</h4>
+              </a>
+              <a href="sine-warm-up.html">
+                  <span class="material-symbols-outlined">airwave</span>
+                  <h4>Sinewave Warm-up</h4>
+              </a>
+
+              <a href="filters.html">
+                <span class="material-symbols-outlined">filter_alt</span>
+                <h4>Filters</h4>
+              </a>
+
+              <a href="db-change.html">
+                  <span class="material-symbols-outlined">noise_aware</span>
+                  <h4>dB Change Quiz</h4>  
+              </a>
+              <a href="eq-fitness-app.html">
+                  <span class="material-symbols-outlined">graphic_eq</span>
+                  <h4>EQ Fitness Quiz</h4>
+              </a>
+              <a href="sine-workout-app.html">
+                  <span class="material-symbols-outlined">heat</span>
+                  <h4>Sinewave Trainer</h4>
+              </a>
+              <a href="abx-test-app.html">
+                  <span class="material-symbols-outlined">psychology_alt</span>
+                  <h4>ABX Tests</h4>
+              </a>
+
+              <a href="plan.html">
+                <span class="material-symbols-outlined">auto_stories</span>
+                <h4>Plano e estudos</h4>
+              </a>
+  
+
+
+          </div>  <!-- ============== END OF SIDEBAR / NAV ===================== -->
+
+      </aside>
+
+
+      <section class="middle">
+
+
+        <!-- ============== CONTENT GOES HERE ===================== -->
+
+        <p>CUZAO</p>
+
+
+
+      </section>
+
+      <section class="right">
+        <div class="activity-feed">
+            <h3>Atividades recentes</h3>
+            <div id="activity-list"></div>
+        </div>
+        
+    
+        <div id="user-list-container">
+            <h4>Usuários registrados</h4>
+            <div id="user-list"></div>
+        </div>
+    </section>
+
+  </div> <!-- ============== END OF CONTAINER ===================== -->
+
+  </main>
+
+    <!-- FOOTER -->
+
+    <footer class="fixed-footer">
+        <div class="cc-license">
+            <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://ear-fitness.netlify.app/"><span class="footer-emphasis">Ear Fitness</span></a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.instagram.com/guilebarros/"><span class="footer-emphasis">Guilherme Barros</span></a> is licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt="cc-license"></a></p>
+        </div>
+    </footer>
+
+    <!-- END OF FOOTER -->
+
+
+  <!-- <script src="js/appscript.js"></script> -->
+  <script type="module" src="js/auth.js"></script>
+  <script type="module" src="js/fetchData.js"></script>
+  <script src="js/darkLightTheme.js"></script>
+
+  <script type="module">
+    import { db, auth } from "../firebaseInfo/firebase.js";
+    import { doc, setDoc, updateDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
+  
+    let sessionStartTime;
+    let appName = window.location.pathname.split("/").pop().replace(".html", "");
+  
+    auth.onAuthStateChanged(async (user) => {
+        if (!user) return;
+  
+        sessionStartTime = Date.now(); // Start tracking time
+        console.log(`User landed on ${appName}`);
+  
+        // Reference to the session in Firestore
+        const sessionRef = doc(db, "users", user.uid, "sessions", `${Date.now()}`);
+  
+
+    });
+  </script>
+</body>
+</html>

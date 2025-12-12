@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/loginForm.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/utils.css">
+    <link rel="stylesheet" href="css/gamification.css">
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Ear Fitness Lite</title>
+        
+</head>
+<body>
+
+<!-- LOGIN FORM -->
+
+<div class="login-form" id="login-form">
+    <div class="left-col">
+        <div class="content">
+            <h1 class="logo-text">ear <span class="logo-emphasis">fitness</span></h1>
+            <p class="login-subtitle">Aplicativos web de percepcão acústica</p>
+            <small>Desenvolvido por Guilherme Barros - 2025</small>
+        </div>
+    </div>
+    <div class="right-col">
+        <div class="form content">
+            <div class="input-wrapper">
+                <label for="name">Nome</label>
+                <input type="text" id="name">
+            </div>
+            <div class="input-wrapper">
+                <label for="email">Email</label>
+                <input type="text" id="email">
+            </div>
+            <div class="input-wrapper">
+                <label for="password">Senha</label>
+                <input type="password" id="password">
+            </div>
+            <div class="input-wrapper">
+                <button id="login-button" class="form-button">Entrar</button>
+                <button id="register-button" class="form-button">Registrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- END OF LOGIN FORM -->
+
+
+<!-- TOP AREA -->
+
+<div class="container" id="dashboard-container">
+
+    <header>
+        <div class="top-area">
+            <p class="logo">ear <span  class="logo-emphasis">fitness</span> <span class="lite">lite</span></p>
+            <!-- Profile picture placeholder -->
+            
+            <div class="profile-area">
+
+                <div class="theme-btn">
+                    <span class="material-icons-sharp active">light_mode</span>
+                    <span class="material-icons-sharp">dark_mode</span>
+                </div>
+
+                <div class="profile-user">
+                    <img id="profile-pic" class="profile-img" src="img/default-avatar-profile-icon.avif" alt="Profile Picture">
+                    <input type="file" id="profile-upload" accept="image/*" style="display: none;">
+                    <p><span id="user-welcome"></span></p> <!-- Dynamic Username Display -->
+                </div>
+                
+            </div>
+            <button id="menu-btn">
+                <span class="material-icons-sharp">menu</span>
+            </button>
+        </div> <!-- end of top area -->
+    </header>
+
+    <main>
+        <aside>
+            <button id="close-btn">
+                <span class="material-icons-sharp">close</span>
+            </button>
+            <div class="sidebar">
+
+                <a href="index.html" class="active">
+                    <span class="material-icons-sharp">dashboard</span>
+                    <h4>Dashboard</h4>
+                </a>
+                <a href="sine-warm-up.html">
+                    <span class="material-symbols-outlined">airwave</span>
+                    <h4>Sine Warm-up</h4>
+                </a>
+
+                <a href="filters.html">
+                    <span class="material-symbols-outlined">filter_alt</span>
+                    <h4>Filters</h4>
+                </a>
+
+                <a href="db-change.html">
+                    <span class="material-symbols-outlined">noise_aware</span>
+                    <h4>dB Change Quiz</h4>  
+                </a>
+                <a href="eq-fitness-app.html">
+                    <span class="material-symbols-outlined">graphic_eq</span>
+                    <h4>EQ Fitness Quiz</h4>
+                </a>
+                <a href="sine-workout-app.html">
+                    <span class="material-symbols-outlined">heat</span>
+                    <h4>Sinewave Trainer</h4>
+                </a>
+                <a href="abx-test-app.html">
+                    <span class="material-symbols-outlined">psychology_alt</span>
+                    <h4> Teste ABX</h4>
+                </a>
+
+                <a href="plan.html">
+                    <span class="material-symbols-outlined">auto_stories</span>
+                    <h4>Plano de estudos</h4>
+                </a>
+
+                <a href="characters.html">
+                <span class="material-symbols-outlined">theater_comedy</span>
+                <h4>Personagens</h4>
+                </a>
+    
+                <a href="#" id="logout-user">
+                    <span class="material-icons-sharp">logout</span>
+                    <h4>Logout</h4>
+                </a>
+
+            </div>
+        </aside>
+
+        <!-- ============== END OF SIDEBAR / NAV ===================== -->
+
+
+        <!-- ============== DATA VISUALIZATION START ===================== -->
+    
+        <section class="middle">
+
+            <div class="eq-fit-visualizations">
+                <!-- EQ Fitness Score Progress -->
+                <div id="eq-score-progress-container">
+                    <h2>Progresso no app EQ Fitness</h2>
+                    <button id="export-eq-score-chart">Download PNG</button>
+                    <canvas id="eqScoreProgressChart"></canvas>
+                </div>
+
+                <!-- Modal -->
+                <div id="eq-score-chart-modal" style="display:none;">
+                    <div id="eq-score-modal-content">
+                        <button id="close-eq-score-modal">X</button>
+                        <canvas id="eqScoreModalChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Missed Frequencies Table -->
+                <div id="eq-missed-frequencies-table">
+                    <h2>EQ Fitness - Erros em frequências</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Pink Noise - Frequência (Hz)</th>
+                                <th>Quantidade</th>
+                                <th>Música - Frequência (Hz)</th>
+                                <th>Quantidade</th>
+                            </tr>
+                        </thead>
+                        <tbody id="missed-frequencies-body">
+                        </tbody>
+                    </table>
+                </div>
+
+            </div> <!-- End of EQ Fitness Visualizations -->
+            
+        
+            <!-- Chart Session SINE WAVE TRAINER -->
+        
+            <!-- Missed frequencies -->
+        
+            <div class="sine-wave-trainer-data">
+
+                <div id="missed-frequencies-container" class="missed-frequencies-container">
+                    <h4>Sine Wave Trainer - Frequências erradas</h4>
+                    <label for="date-picker-missed">Selecione a data:</label>
+                    <input type="date" id="date-picker-missed">
+                    
+                    <label for="time-filter-missed">Veja:</label>
+                    <select id="time-filter-missed">
+                        <option value="day">Dia</option>
+                        <option value="week" selected>Semana</option>
+                        <option value="month">Mês</option>
+                    </select>
+                
+                    <button id="fetch-missed-data">Ver dados</button>
+                    <button id="export-missed-chart">Download .png</button>
+                    
+                    <canvas id="missedFrequenciesChart"></canvas>
+                </div>
+
+                <!-- Modal for fullscreen chart -->
+                <div id="chart-modal" style="display:none;">
+                    <div id="modal-content">
+                        <button id="close-modal">X</button>
+                        <canvas id="modalChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="score-progress-container">
+                    <div class="score-progress">
+                        <h4>Sine Wave Trainer: Progresso</h4>
+                        <button id="export-score-chart">Download PNG</button>
+                        <canvas id="scoreProgressChart"></canvas>
+                    </div>
+
+                    <!-- Modal for fullscreen chart -->
+                     
+                    <div id="score-chart-modal" style="display:none;">
+                        <div id="score-modal-content">
+                            <button id="close-score-modal">X</button>
+                            <canvas id="scoreModalChart"></canvas>
+                        </div>
+                    </div>
+
+
+                </div>
+            
+            </div> <!-- End of sine-wave-data div -->
+
+                    <!-- ============== USER INVENTORY START ===================== -->
+
+        <div id="user-inventory">
+
+            <div class="user-info">
+              <img id="inventory-profile-pic" src="img/default-avatar-profile-icon.avif">
+              <div>
+                <p id="inventory-user-name" class="name">Usuário</p>
+                <p class="points">Pontos: <span id="user-points">0</span></p>
+              </div>
+            </div>
+          
+            <div id="inventory-items">
+              <div class="item">
+                <p>Moedas Sine</p>
+                <img src="icons/sine_coin.png" alt="Sinewave Coins">
+                <p>x<span id="sine-coin-count">0</span></p>
+              </div>
+
+              <div class="item">
+                <p>Moedas EQ</p>
+                <img src="icons/eq_coin.png" alt="EQ Coins">
+                <p>x<span id="eq-coin-count">0</span></p>
+              </div>
+
+              <div class="item">
+                <p>Scores altos:</p>
+                <img src="icons/gold_trophy.png" alt="High Score Medal">
+                <p>x<span id="high-score-count">0</span></p>
+              </div>
+
+              <div class="item">
+                <p>Sine 5-dias seguidos:</p>
+                <img src="icons/5daystreak.png" alt="Sinewave 5-Day Streak">
+                <p>x<span id="streak-sine-count">0</span></p>
+              </div>
+              <div class="item">
+                <p>EQ 5-dias seguidos:</p>
+                <img src="icons/5DayStreak_EQ.png" alt="EQ 5-Day Streak">
+                <p>x<span id="streak-eq-count">0</span></p>
+              </div>
+              <div class="item">
+                <p>Esforço (3x ao dia):</p>
+                <img src="icons/effort.png" alt="Effort Badge">
+                <p>x<span id="effort-count">0</span></p>
+              </div>
+
+
+          </div> <!-- ============== INVENTORY ITEMS END ===================== -->
+
+          <h3 class="study-plan-h2">Progresso no plano de estudo (semanas)</h3>
+          <button id="toggle-drill-btn">Mostre mais semanas</button>
+          <div id="drill-progress"></div> 
+          
+        </div>         <!-- ============== USER INVENTORY END ===================== -->
+
+        <!-- ============== CURSED CHARACTERS ===================== -->
+
+        <div id="cursed-characters"  style="display: none;">
+        <h3>Personagens amaldiçoados</h3>
+        <div id="cursed-badges-inner" class="badges-container"></div>
+        </div>
+
+
+         <!-- ============== BADGES AND CHARACTERS ===================== -->
+
+        <div id="badges-and-characters">
+            <h3>Medalhas e personagens</h3>
+            <div id="badges-container" class="badges-container"></div>
+        </div>
+
+
+        <!-- User's playlist -->
+
+        <div id="eq-fitness-playlist">
+            <h2>🎵 Playlist - Músicas usadas no app EQ Fitness</h2>
+            <ul id="playlist-songs" class="playlist"></ul>
+            <button id="load-playlist">Mostrar músicas</button>
+            <button id="show-more" style="display:none">Mais +</button>
+            <button id="close-playlist" style="display:none">Fechar músicas</button>
+        </div>
+
+        <!-- User's playlist end -->
+
+
+        </section>
+    
+        <!-- ============== DATA VISUALIZATION END ===================== -->
+
+        <section class="right">
+            <div class="activity-feed">
+                <h3>Atividades recentes</h3>
+                <div id="activity-list"></div>
+            </div>
+        
+            <div id="user-list-container">
+                <h4>Usuários registrados</h4>
+                <div id="user-list"></div>
+            </div>
+        </section>
+
+
+        
+    </div> <!-- End of dashboard-container -->
+    </main>
+
+    <!-- FOOTER -->
+
+    <footer class="fixed-footer">
+        <div class="cc-license">
+            <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://ear-fitness.netlify.app/"><span class="footer-emphasis">Ear Fitness</span></a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.instagram.com/guilebarros/"><span class="footer-emphasis">Guilherme Barros</span></a> is licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt="cc-license"></a></p>
+        </div>
+    </footer>
+    
+
+<script type="module" src="/firebaseInfo/firebase.js"></script>
+<script src="js/darkLightTheme.js"></script>
+<script type="module" src="js/index.js"></script>
+
+</body>
+</html>

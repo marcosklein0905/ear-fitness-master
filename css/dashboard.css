@@ -1,0 +1,160 @@
+  .lite {
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.2rem;
+    margin-left: 0.7;
+  }
+
+
+/* ============================ MID SECTION ============================== */
+
+.eq-fitness-data
+ {
+    background: var(--color-light);
+    border-radius: 6px;
+    margin: 0.7em;
+    padding: 1em;
+    font-size: 12px;
+    color: var(--color-dark);
+}
+
+.sine-wave-trainer-data {
+    display: flex;
+    margin-top: 2em;
+    gap: 3em;
+    justify-content: center;
+    align-items: center;
+    padding: 0.7em;
+
+    background: var(--color-white);
+    border-radius: var(--border-radius-2);
+    box-shadow: var(--box-shadow);
+}
+
+.missed-frequencies-container, .score-progress-container {
+    background: var(--color-light);
+    border-radius: var(--border-radius-2);
+    padding: 0.7em;
+}
+
+.eq-fit-container {
+
+    background: var(--color-white);
+    border-radius: var(--border-radius-2);
+    box-shadow: var(--box-shadow);
+ 
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 0.3em;
+    text-align: center;
+
+}
+
+.eq-fit-container h4 {
+    grid-column: span 2; /* Makes the h4 span across both columns */
+    justify-self: center;
+    margin-top: 0.6em;
+}
+
+.eq-fitness-data .first {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.eq-fitness-data .second {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.eq-fitness-data .third  {
+    grid-column: span 2; /* Makes it span across both columns */
+    grid-row: 3;
+}
+
+#user-list-container {
+    margin-top: 0.7em;
+    text-align: center;
+    margin-left: 0.7em;
+    padding: 15px;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+
+.user-card {
+
+    display: flex;
+    align-items: center;
+    color: gray;
+    gap: 10px;
+    padding: 0.3em;
+    border-radius: 8px;
+    margin: 3px 0;
+    background-color: var(--color-light);
+    transition: transform 0.2s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.user-card:hover {
+    transform: scale(1.03);
+}
+
+.user-profile-pic {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid grey;
+    padding: 1px;
+}
+
+.user-name {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* ACTIVITIES */
+
+.activity-feed {
+    margin: 0.7em;;
+    font-size: 12px;
+    padding: 15px;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.activity-feed h3 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.activity-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 1px;
+    border-radius: 6px;
+    background: var(--color-light);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.activity-card img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.activity-card p {
+    font-size: 14px;
+    color: var(--color-dark);
+}

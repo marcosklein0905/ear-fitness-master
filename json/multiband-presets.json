@@ -1,0 +1,45 @@
+[
+    {
+      "presetName": "Basic 5-Band EQ",
+      "bands": [
+        { "low": 20, "high": 80 },
+        { "low": 80, "high": 250 },
+        { "low": 250, "high": 1000 },
+        { "low": 1000, "high": 5000 },
+        { "low": 5000, "high": 20000 }
+      ]
+    },
+    {
+      "presetName": "Waves LinMB Default",
+      "bands": [
+        { "low": 20, "high": 92 },
+        { "low": 92, "high": 545 },
+        { "low": 545, "high": 4000 },
+        { "low": 4000, "high": 11071 },
+        { "low": 11071, "high": 20000 }
+      ]
+    },
+    {
+      "presetName": "4-Band Split",
+      "bands": [
+        { "low": 20, "high": 100 },
+        { "low": 100, "high": 1000 },
+        { "low": 1000, "high": 5000 },
+        { "low": 5000, "high": 20000 }
+      ]
+    },
+    {
+      "presetName": "8-Band Precision",
+      "bands": [
+        { "low": 20, "high": 60 },
+        { "low": 60, "high": 150 },
+        { "low": 150, "high": 300 },
+        { "low": 300, "high": 600 },
+        { "low": 600, "high": 1200 },
+        { "low": 1200, "high": 3000 },
+        { "low": 3000, "high": 8000 },
+        { "low": 8000, "high": 20000 }
+      ]
+    }
+  ]
+  

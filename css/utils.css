@@ -1,0 +1,310 @@
+
+.back-to-dashboard {
+    position: absolute;
+    color: white;
+    top: 1em;
+    left: 1em;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    gap: 0.7em;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form {
+    display: none;
+}
+
+.back-to-dashboard:hover {
+    color: greenyellow;
+}
+.icon-small {
+    width: 30px;
+    height: 30px;
+}
+
+/* Dashboard Input Dates and buttons */
+
+/*  Shared styles */
+input[type="date"],
+select,
+button {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    color: #333;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+    margin: 4px 0;
+}
+
+/* 🗓️ Date Picker */
+input[type="date"] {
+    width: fit-content;
+    min-width: 160px;
+    cursor: pointer;
+}
+
+input[type="date"]:hover,
+input[type="date"]:focus {
+    border-color: #888;
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 🔘 Buttons */
+
+.middle button {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    margin-right: 8px;
+}
+
+.middle button:hover {
+    background-color: var(--color-button-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.middle button:active {
+    background-color: #14863c;
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/* 🔽 Select menus (like view type: day, week, month) */
+select {
+    cursor: pointer;
+}
+
+select:hover,
+select:focus {
+    border-color: #888;
+    background-color: #fff;
+}
+
+/* CHARTS */
+
+/* Sine Wave Trainer */
+
+#missedFrequenciesChart, #scoreProgressChart {
+    border: 1px solid gray;
+    margin: 0.7em;
+    border-radius: 1em;
+    max-width: 300px; 
+    max-height: 200px;
+    cursor: pointer; 
+}
+
+
+
+#chart-modal {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#modal-content {
+    background: white;
+    padding: 20px;
+    position: relative;
+}
+
+#modalChart {
+    width: 90vw;
+    height: 80vh;
+}
+
+#close-modal {
+    position: absolute;
+    top: 10px; right: 10px;
+}
+
+#score-chart-modal {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#score-modal-content {
+    background: white;
+    padding: 20px;
+    position: relative;
+}
+
+#scoreModalChart {
+    width: 90vw;
+    height: 80vh;
+}
+
+#close-score-modal {
+    position: absolute;
+    top: 10px; right: 10px;
+}
+
+/* ==================== EQ FITNESS CHARTS AND TABLE ===================== */
+
+#eqScoreProgressChart {
+    max-width: 90%;
+    max-height: 300px;
+    cursor: pointer;
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-2);
+    box-shadow: var(--box-shadow);
+    padding: 0.7em;
+}
+#eq-score-progress-container {
+    margin-bottom: 40px;
+}
+
+/* Modal */
+
+#eq-score-chart-modal {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+#eq-score-modal-content {
+    background: white;
+    padding: 20px;
+    position: relative;
+}
+#eqScoreModalChart {
+    width: 90vw;
+    height: 80vh;
+}
+#close-eq-score-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* Table */
+
+#eq-missed-frequencies-table {
+    width: 90%;
+    overflow-x: auto;
+    margin-bottom: 1em;
+    background: var(--color-white);
+    padding: 0.7em;
+    border-radius: var(--border-radius-2);
+    box-shadow: var(--box-shadow);
+}
+
+#eq-missed-frequencies-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+#eq-missed-frequencies-table th,
+#eq-missed-frequencies-table td {
+    padding: 10px;
+    border: 1px solid var(--color-gray-light);
+    text-align: center;
+}
+
+#eq-missed-frequencies-table th {
+    background-color: var(--color-purple-light);
+    font-weight: bold;
+}
+
+#eq-missed-frequencies-table tr:nth-child(even) {
+    background-color: var(--color-light);
+}
+
+#eq-missed-frequencies-table h2 {
+    margin-bottom: 10px;
+}
+
+/* User Playlist Spotify Vibe */
+
+#eq-fitness-playlist {
+    background: linear-gradient(135deg, #1db954, #191414);
+    padding: 20px;
+    border-radius: 12px;
+    color: var(--color-white);
+    margin-top: 0.7em;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+#eq-fitness-playlist h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#playlist-songs {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#playlist-songs li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: background 0.3s, transform 0.2s;
+    font-size: 1rem;
+}
+
+#playlist-songs li:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    cursor: pointer;
+}
+
+#playlist-songs li::before {
+    content: "🎶";
+    font-size: 1.2rem;
+}
+
+
+@media screen and (max-width: 1024px) {
+
+    #missedFrequenciesChart, #scoreProgressChart {
+
+        max-width: 400px; 
+        max-height: 300px; 
+    }
+
+
+}
+
+@media screen and (max-width: 600px) {
+
+    #missedFrequenciesChart, #scoreProgressChart {
+
+        max-width: 600px; 
+        max-height: 300px; 
+    }
+
+
+}
+
+

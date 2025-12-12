@@ -1,0 +1,352 @@
+/* === Retro Ancient OS Vibe Skin (Updated) === */
+
+  body {
+    font-family: 'Perfect DOS VGA 437 Win', monospace;
+  }
+
+  
+  body {
+    font-family: 'Pixelated', monospace;
+    background-color: #c0c0c0;
+    color: #000;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* === Frame Borders & General Container Styling === */
+ .quiz-container, .modal-content, #progressive-info, #error-stats {
+    background: #dfdfdf;
+    border: 2px solid #808080;
+    box-shadow: inset -1px -1px 0 #fff, inset 1px 1px 0 #000;
+    padding: 12px;
+    margin: 8px;
+    border-radius: 0;
+  }
+
+  .top-container {
+    margin-left: 10px;
+  }
+  
+  
+  /* === Button Styling === */
+  button {
+    font-family: 'Pixelated', monospace;
+    background: #e0e0e0;
+    color: black;
+    border: 2px outset #808080;
+    box-shadow: inset -1px -1px 0 #fff, inset 1px 1px 0 #000;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+  }
+  
+  button:hover {
+    background: #d0d0d0;
+  }
+  
+  button:active {
+    background: #b0b0b0;
+    border: 2px inset #404040;
+    box-shadow: inset 2px 2px 0 #fff, inset -2px -2px 0 #000;
+  }
+  
+  
+  button.active-path {
+    background: #b0b0b0;
+    box-shadow: inset 2px 2px 0 #fff, inset -2px -2px 0 #000 !important;
+}
+  
+  /* === Select Dropdowns === */
+  select {
+    font-family: 'Pixelated', monospace;
+    background-color: #f0f0f0;
+    border: 2px solid #808080;
+    padding: 4px 6px;
+    box-shadow: inset -1px -1px 0 #fff, inset 1px 1px 0 #000;
+  }
+  
+  label {
+    display: block;
+    margin: 6px 0 2px;
+  }
+  
+  /* === Scrollbars === */
+  ::-webkit-scrollbar {
+    width: 16px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #c0c0c0;
+    border: 2px solid #808080;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #808080;
+    border: 2px solid #404040;
+  }
+  
+  /* === Toggle Switch (Pink Noise Mode) === */
+  .switch {
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    background: #c0c0c0;
+    border: 2px solid #808080;
+    position: relative;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    background: #606060;
+    height: 100%;
+    width: 50%;
+    transition: left 0.3s;
+    left: 0;
+  }
+  
+  input:checked + .slider {
+    left: 50%;
+  }
+  
+  /* === Tooltip === */
+
+  /* TOOLTIP STYLES */
+
+.back {
+    text-decoration: none;
+    color: var(--color-primary);
+    
+  }
+  
+  .show-used-frequencies {
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+    align-items: center;
+    font-size: 12px;
+    background: var(--color-white);
+  
+    position: relative; 
+    display: inline-block; 
+    padding: 10px;
+    cursor: pointer;
+    margin-left: 2em;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  
+  .show-used-frequencies span {
+    border: 1px solid var(--color-primary);
+    font-size: 14px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .show-used-frequencies span:hover {
+    border: 1px solid var(--color-primary-light);
+    color: var(--color-primary-light);
+    transition: all 500ms ease;
+  }
+  
+  .tooltip {
+  visibility: hidden;
+  width: 220px;
+
+  visibility: hidden;
+  position: absolute;
+  font-family: 'Pixelated', monospace;
+  font-size: 12px;
+  background: #808080;
+  color: white;
+  text-align: center;
+  padding: 8px 10px;
+  border-radius: 6px;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%) scale(0.95);
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  z-index: 1000;
+  }
+  
+  /* Show tooltip smoothly on hover */
+  .show-used-frequencies:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+  }
+  
+  #waveform {
+    display: block;
+    border: 2px solid #404040;
+    background: repeating-linear-gradient(
+      to bottom,
+      #000000,
+      #000000 2px,
+      #111111 2px,
+      #111111 4px
+    );
+    box-shadow: inset 2px 2px 0 #fff, inset -2px -2px 0 #000;
+    margin: 8px auto;
+    image-rendering: pixelated;
+  }
+
+  .upload-label {
+    display: inline-block;
+    font-family: 'Pixelated', monospace;
+    background: #e0e0e0;
+    border: 2px solid #808080;
+    padding: 6px 12px;
+    cursor: pointer;
+    box-shadow: inset -1px -1px 0 #fff, inset 1px 1px 0 #000;
+  }
+  
+  .upload-label:hover {
+    background: #d0d0d0;
+  }
+  .upload-label:active {
+    background: #b0b0b0;
+  }
+
+  #waveform::after {
+    content: '';
+    display: block;
+    height: 100%;
+    background: rgba(0,255,0,0.05);
+    mix-blend-mode: screen;
+    pointer-events: none;
+  }
+  
+  
+  
+
+  /* === Modal === */
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal.hidden {
+    display: none;
+  }
+  
+  .modal-content {
+    background: #f8f8f8;
+    border: 2px solid #404040;
+    padding: 16px;
+    max-width: 300px;
+    margin: auto;
+    box-shadow: 4px 4px #000;
+    text-align: center;
+  }
+  
+  .modal-content button {
+    margin: 10px;
+  }
+  
+  .hidden {
+    display: none !important;
+  }
+  
+  /* === Link Styling === */
+  a {
+    font-family: 'Pixelated', monospace;
+    color: #0000aa;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* === Misc === */
+  .logo {
+    font-size: 24px;
+    color: #000;
+  }
+  
+  .logo-emphasis {
+    font-weight: bold;
+    color: #aa0000;
+  }
+  
+  .audio-controls button {
+    margin: 2px;
+  }
+  
+  .slider-container input[type=range] {
+    width: 100%;
+    background: #ddd;
+    border: 1px solid #808080;
+    height: 12px;
+
+  }
+
+  #feedback {
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
+
+  #score {
+    margin-top: 10px;
+    font-size: 16px;
+  }
+
+  #frequency-label {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .slider-container input[type=range]::-webkit-slider-thumb {
+    background: #606060;
+    border: 1px solid #000;
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+    -webkit-appearance: none;
+  }
+  
+  @media (max-width: 600px) {
+    .top-container, .quiz-container {
+      margin: 4px;
+      padding: 8px;
+    }
+    button, select {
+      font-size: 14px;
+    }
+  }
+  
+  /* Hide cog when top-container is open */
+  body.settings-open .open-settings {
+    display: none !important;
+  }
+  
+  .open-settings {
+    position: absolute;
+    z-index: 5;
+  }
+  
+  .top-container {
+    position: relative;
+    z-index: 10;
+  }
+  

@@ -1,0 +1,540 @@
+:root {
+    --bg-color: #f4f4f4;
+    --text-color: #000;
+    --container-bg: #fff;
+    --button-bg: var(--color-primary);
+    --button-text: #fff;
+    --modal-bg: rgba(0, 0, 0, 0.5);
+    --slider-track-color: #ccc;
+    --slider-thumb-color: var(--color-primary);
+    --slider-thumb-hover: #0056b3; /* Slightly darker shade for hover effect */
+    --slider-thumb-border: var(--container-bg);
+
+  /* Common Variables */
+
+    --color-white: #ffffff;
+    --color-light: #f0eff5;
+    --color-gray-light: #86848c;
+    --color-gray-dark: #56555e;
+    --color-dark: #27282f;
+    --color-primary: rgb(71, 7, 234);
+    --color-success: rgb(34, 202, 75);
+    --color-danger: rgb(255, 67, 54);
+    --color-warning: rgb(234, 181, 7);
+    --color-purple: rgb(160, 99, 245);
+
+    --color-primary-light: rgb(71, 7, 234, 0.2);
+    --color-success-light: rgb(34, 202, 75, 0.2);
+    --color-danger-light: rgb(255, 67, 54, 0.2);
+    --color-warning-light: rgb(234, 181, 7, 0.2);
+    --color-purple-light: rgb(160, 99, 245, 0.2);
+
+    --card-padding: 1.6rem;
+    --padding-1: 1rem;
+    --padding-2: 8px;
+
+    --card-border-radius: 1.6rem;
+    --border-radius-1: 1rem;
+    --border-radius-2: 6px;
+
+    --h1-font-size: 2.2rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.2rem;
+    --h4-font-size: 1rem;
+    --h5-font-size: 0.86rem;
+    --h5-font-weight: 500;
+    --p--font-size: 0.86rem;
+    --a-font-size: 1.7rem;
+    --sidebar-h4-font-weight: 500;
+
+    --small-font-weight: 300;
+    --small-font-size: 0.77rem;
+
+    --transition: all 400ms ease;
+
+    --box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+
+  .logo {
+    font-size: 2rem;
+  }
+
+  .logo-emphasis {
+      color: var(--color-primary);
+  }
+
+
+.material-symbols-outlined {
+    color: var(--color-primary);
+    margin-right: 0.3em;
+}
+
+.config-tab {
+  /* background-color: rgb(239, 235, 235); */
+
+   background: linear-gradient(
+    45deg,
+    #999 5%,
+    #fff 10%,
+    #ccc 30%,
+    #ddd 50%,
+    #ccc 70%,
+    #fff 80%,
+    #999 95%
+  );
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  
+  color: rgb(23, 22, 22);
+  padding: 1.5em;
+  display: grid;
+  border-radius: 1em;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.1em;               
+  align-items: stretch;
+  text-align: left;
+  box-shadow: var(--box-shadow); 
+
+}
+
+.config-tab .material-icons-sharp, .config-wrap .material-icons-sharp{
+    font-size: 12px;
+}
+
+.open-settings {
+  display: inline;
+}
+
+.open-settings.hidden {
+  display: none;
+}
+
+.config-tab.hidden {
+  display: none;
+}
+
+
+  
+  .quiz-container {
+    width: 100%;
+    max-width: 800px;
+    background-color: var(--color-light);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+  }
+
+  .left {
+    margin-right: 10px;
+  }
+  
+  label, select, button, input[type="range"] {
+    display: block;
+    margin: 10px auto;
+  }
+
+  .audio-controls {
+    margin-top: 1em;
+  }
+  
+  .audio-controls button {
+    padding: 10px 20px;
+    background-color: var(--color-primary);
+    color: var(--button-text);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .audio-controls button:hover {
+    background-color: var(--color-primary-light);
+    transition: all 500ms ease;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+
+  .audio-controls button.active-path {
+    background-color: #4caf50;
+    color: white;
+    border: 2px solid #388e3c;
+}
+
+  .audio-controls, .question-buttons {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 5px;
+    padding: 2px;
+    border-radius: 5px;
+    box-shadow: var(--box-shadow);
+  }
+
+  .question-buttons {
+    padding: 1em;
+  }
+
+  .question-buttons button {
+    padding: 1.1em 1em;
+  }
+
+  .reset-default {
+    margin: 10px;
+    background-color: var(--color-primary);
+    padding: 10px;
+    border-radius: 0.3em;
+
+  }
+  
+  .slider-container {
+    margin: 20px 0;
+  }
+  
+  #frequency-label {
+    display: block;
+    margin-top: 10px;
+  }
+
+  .used-frequencies {
+
+    display: none;
+    border: 1px solid var(--color-gray-light);
+    border-radius: 1em;
+
+    position: absolute;
+    top: 100px;
+    left: 20px;
+    overflow-wrap: break-word;
+    line-height: 1.4;
+    max-width: 180px;
+    padding: 0.7em;
+  }
+  
+  #feedback {
+    margin-top: 20px;
+    margin-bottom: 2em;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  #score {
+    margin-top: 10px;
+    font-size: 16px;
+  }
+  
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--modal-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal.hidden {
+    display: none;
+  }
+  
+  .modal-content {
+    background: #fff;
+    color: rgb(23, 22, 22);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+  }
+  
+  .modal-content button {
+    margin: 10px;
+  }
+  
+/* Slider */
+
+  .slider-container {
+    margin: 20px 0;
+    text-align: center;
+  }
+  
+  #frequency-slider {
+    -webkit-appearance: none; /* Remove default styling */
+    appearance: none;
+    width: 80%;
+    height: 8px;
+    background: var(--slider-track-color);
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  #frequency-slider:disabled {
+    cursor: not-allowed;
+    background: var(--color-light);
+    opacity: 0.6;
+  }
+  
+  #frequency-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--slider-thumb-color);
+    border: 2px solid var(--slider-thumb-border);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+  }
+  
+  #frequency-slider:not(:disabled):hover::-webkit-slider-thumb {
+    background: var(--slider-thumb-hover);
+    transform: scale(1.1);
+  }
+  
+  #frequency-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: var(--slider-thumb-color);
+    border: 2px solid var(--slider-thumb-border);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+  }
+  
+  #frequency-slider:not(:disabled):hover::-moz-range-thumb {
+    background: var(--slider-thumb-hover);
+    transform: scale(1.1);
+  }
+  
+  #frequency-label {
+    margin-top: 10px;
+    font-size: 16px;
+    color: var(--color-dark);
+    font-weight: bold;
+  }
+
+  canvas#confettiCanvas {
+    display: block; /* remove inline/extra spacing */
+    background: transparent;
+  }
+  
+  /* Radio buttons */
+
+  /* Style the gain options container */
+#gain-options-container {
+  display: flex; /* Use flexbox to layout the radios */
+  flex-wrap: wrap; /* Allow wrapping to the next line */
+  justify-content: space-evenly;
+  gap: 10px; /* Add space between radio buttons */
+  margin-top: 2em; /* Add some margin for spacing */
+}
+
+/* Style individual radio button wrappers */
+#gain-options-container div {
+  display: flex;
+  align-items: center; /* Align radio button and label */
+  padding: 5px 10px;
+  border: 1px solid #ccc; /* Add a light border */
+  border-radius: 5px; /* Round the corners */
+  background-color: #f9f9f9; /* Light background for better visibility */
+  transition: background-color 0.2s, border-color 0.2s;
+  cursor: pointer; /* Change cursor on hover */
+}
+
+/* Highlight on hover */
+#gain-options-container div:hover {
+  background-color: #eaeaea;
+  border-color: #bbb;
+}
+
+/* Style the radio button */
+#gain-options-container input[type="radio"] {
+  margin-right: 5px; /* Space between button and label */
+  cursor: pointer; /* Pointer for radio buttons */
+  appearance: auto; /* Força o navegador a desenhar o círculo */
+  position: relative;
+  z-index: 2; /* Garante que fique acima do fundo do wrapper */
+}
+
+/* Style the label */
+#gain-options-container label {
+  font-size: 14px;
+  color: #333;
+  cursor: pointer; /* Pointer for label */
+}
+
+#star-container {
+  display: flex; /* Display stars in a row */
+  gap: 5px; /* Add spacing between stars */
+  align-items: center; /* Center-align stars vertically */
+}
+
+.star-icon {
+  width: 24px; /* Adjust the size as needed */
+  height: 24px;
+}
+
+/* Styling for the switch container */
+.mode-switch {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+}
+
+/* Base styling for the switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Styling for the slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 25px;
+  transition: background-color 0.4s;
+}
+
+/* Circle inside the slider */
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 19px;
+  width: 19px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.4s;
+}
+
+/* When the checkbox is checked */
+input:checked + .slider {
+  background-color: #4caf50;
+}
+
+input:checked + .slider:before {
+  transform: translateX(25px);
+}
+
+
+/* TOOLTIP STYLES */
+
+.back {
+  text-decoration: none;
+  color: var(--color-primary);
+  
+}
+
+.show-used-frequencies {
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+  align-items: center;
+  font-size: 13px;
+  position: relative; 
+  display: inline-block; 
+  padding: 10px;
+  cursor: pointer;
+  margin-left: 2em;
+  transition: background 0.3s ease-in-out;
+}
+
+
+
+.show-used-frequencies span {
+  border: 1px solid var(--color-primary);
+  font-size: 17px;
+  border-radius: 50%;
+  cursor: pointer;
+  
+}
+
+.show-used-frequencies span:hover {
+  border: 1px solid var(--color-primary-light);
+  color: var(--color-primary-light);
+  transition: all 500ms ease;
+}
+
+.tooltip {
+visibility: hidden;
+width: 220px;
+background: rgba(0, 0, 0, 0.85); /* Alpha transparency */
+color: white;
+text-align: center;
+padding: 8px 10px;
+border-radius: 6px;
+position: absolute;
+bottom: 120%;
+left: 50%;
+transform: translateX(-50%) scale(0.95);
+opacity: 0;
+transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+pointer-events: none;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Show tooltip smoothly on hover */
+.show-used-frequencies:hover .tooltip {
+visibility: visible;
+opacity: 1;
+transform: translateX(-50%) scale(1);
+}
+
+
+/* SETTINGS TAB */
+
+
+
+
+
+
+
+
+
+/* MEDIA QUERIES */
+
+
+@media screen and (max-width: 1000px) {
+
+
+  .audio-controls {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .quiz-container {
+
+    margin-left: 2em;
+
+  }
+  
+}

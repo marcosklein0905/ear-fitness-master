@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+
+  <link rel="stylesheet" href="css/abx-test-app.css">
+  <link rel="stylesheet" href="css/tooltips.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+
+
+
+  <title> TESTE ABX</title>
+  <style>
+
+    .middle {
+        background: var(--color-white);
+        padding: 2em;
+        border-radius: var(--border-radius-2);
+        text-align: left;
+    }
+
+    hr {
+        border-bottom: 1px solid var(--color-gray-dark);
+        margin-bottom: 1em;
+    }
+
+    h3 {
+        margin-top: 1em;
+    }
+
+    .feedback {
+        margin-top: 1em;
+        border: 1px solid var(--color-gray-light);
+        border-radius: 5px;
+        padding: 0.7em;
+    }
+    
+
+</style>
+</head>
+<body>
+
+<!-- TOP AREA -->
+
+<div class="container" id="dashboard-container">
+
+  <header>
+      <div class="top-area">
+          <p class="logo">ear <span  class="logo-emphasis">fitness</span> <span class="lite">lite</span></p>
+          <!-- Profile picture placeholder -->
+          
+          <div class="profile-area">
+
+              <div class="theme-btn">
+                  <span class="material-icons-sharp active">light_mode</span>
+                  <span class="material-icons-sharp">dark_mode</span>
+              </div>
+
+              <div class="profile-user">
+                  <img id="profile-pic" class="profile-img" src="img/default-avatar-profile-icon.avif" alt="Profile Picture">
+                  <input type="file" id="profile-upload" accept="image/*" style="display: none;">
+                  <p><span id="user-welcome"></span></p> <!-- Dynamic Username Display -->
+              </div>
+          </div>
+          <button id="menu-btn">
+              <span class="material-icons-sharp">menu</span>
+          </button>
+      </div> <!-- end of top area -->
+  </header>
+
+  <main>
+      <aside>
+          <button id="close-btn">
+              <span class="material-icons-sharp">close</span>
+          </button>
+          <div class="sidebar">
+
+              <a href="index.html">
+                  <span class="material-icons-sharp">dashboard</span>
+                  <h4>Dashboard</h4>
+              </a>
+              <a href="sine-warm-up.html">
+                  <span class="material-symbols-outlined">airwave</span>
+                  <h4>Sine Warm-up</h4>
+              </a>
+
+              <a href="filters.html">
+                <span class="material-symbols-outlined">filter_alt</span>
+                <h4>Filters</h4>
+              </a>
+
+              <a href="db-change.html">
+                  <span class="material-symbols-outlined">noise_aware</span>
+                  <h4>dB Change Quiz</h4>  
+              </a>
+              <a href="eq-fitness-app.html">
+                  <span class="material-symbols-outlined">graphic_eq</span>
+                  <h4>EQ Fitness Quiz</h4>
+              </a>
+              <a href="sine-workout-app.html">
+                  <span class="material-symbols-outlined">heat</span>
+                  <h4>Sinewave Trainer</h4>
+              </a>
+              <a href="abx-test-app.html" class="active">
+                  <span class="material-symbols-outlined">psychology_alt</span>
+                  <h4>ABX Tests</h4>
+              </a>
+
+              <a href="plan.html">
+                <span class="material-symbols-outlined">auto_stories</span>
+                <h4>Plano de estudos</h4>
+              </a>
+
+
+          </div>  <!-- ============== END OF SIDEBAR / NAV ===================== -->
+
+      </aside>
+
+
+      <section class="middle">
+
+            <div id="initial-screen">
+            
+                <h1>Teste ABX</h1>
+
+                    <div id="explain-me" class="explain-me">
+                        <span class="material-symbols-outlined">question_mark</span>
+                    <div class="tooltip" id="tooltip-text">Loading...</div>
+                    </div>
+                <label for="num-trials">Número de questões:</label>
+                <input type="number" id="num-trials" min="1" max="20" value="5">
+                <label for="subject-select">Presets:</label>
+                <select id="subject-select"></select>
+
+                <hr>
+
+                <!-- Custom mode -->
+                 <h3>Crie seu teste:</h3>
+                <label>Arquivo A: <input type="file" id="custom-a" accept="audio/*" /></label>
+                <label>Arquivo B: <input type="file" id="custom-b" accept="audio/*" /></label>
+
+                <!-- Init -->
+                
+                <button id="init-test">Iniciar teste ABX</button>
+            </div>
+        
+            <div id="test-screen" style="display: none;">
+                
+
+                <h1>Teste ABX</h1>
+                <div id="trial-info"></div>
+                <div id="question-text"></div>
+                <div class="button-group">
+                    <button class="play-btn" id="play-a">A</button>
+                    <button class="play-btn" id="play-x">X</button>
+                    <button class="play-btn" id="play-b">B</button>
+                </div>
+                <div class="control-group">
+                    <button class="control-btn" id="rewind">-1s</button>
+                    <button class="control-btn" id="restart"><<</button>
+                    <button class="control-btn" id="forward">+1s</button>
+                </div>
+                <div class="choose-group">
+                    <button class="choose-btn" id="x-is-a">X = A</button>
+                    <button class="choose-btn" id="x-is-b">X = B</button>
+                </div>
+                <button id="submit-answer">Enviar</button>
+            </div>
+        
+            <div id="result-screen" style="display: none;">
+                <h1>Resultados:</h1>
+                <div id="score"></div>
+
+                <!-- Confetti canvas start -->
+
+                <div class="modal" id="winnerModal">
+                    <canvas id="confettiCanvas"></canvas>
+                    <div class="modal-content" id="winnerText"></div>
+                  </div>
+                  
+                <!-- Confetti canvas end -->
+
+                <div id="feedback" class="feedback" style="white-space: pre-wrap; margin-top: 1em;"></div>
+
+                <button id="repeat-test">Repetir teste </button>
+                <button id="quit-test">Finalizar</button>
+            </div>
+
+      </section>
+
+      <section class="right">
+        <div class="activity-feed">
+            <h3>Atividades recentes</h3>
+            <div id="activity-list"></div>
+        </div>
+        
+    
+        <div id="user-list-container">
+            <h4>Usuáriuos registrados</h4>
+            <div id="user-list"></div>
+        </div>
+    </section>
+
+  </div> <!-- ============== END OF CONTAINER ===================== -->
+
+  </main>
+
+    <!-- FOOTER -->
+
+    <footer class="fixed-footer">
+        <div class="cc-license">
+            <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://ear-fitness.netlify.app/"><span class="footer-emphasis">Ear Fitness</span></a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.instagram.com/guilebarros/"><span class="footer-emphasis">Guilherme Barros</span></a> is licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt="cc-license"></a></p>
+        </div>
+    </footer>
+    
+    <!-- END OF FOOTER -->
+
+  <script src="js/abx-test-app.js"></script>
+  <script type="module" src="js/auth.js"></script>
+  <script type="module" src="js/fetchData.js"></script>
+  <script type="module" src="js/gamifications.js"></script>
+  <script src="js/darkLightTheme.js"></script>
+
+  <script type="module">
+    import { db, auth } from "../firebaseInfo/firebase.js";
+    import { doc, setDoc, updateDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
+  
+    let sessionStartTime;
+    let appName = window.location.pathname.split("/").pop().replace(".html", "");
+  
+    auth.onAuthStateChanged(async (user) => {
+        if (!user) return;
+  
+        sessionStartTime = Date.now(); // Start tracking time
+        console.log(`User landed on ${appName}`);
+  
+        // Reference to the session in Firestore
+        const sessionRef = doc(db, "users", user.uid, "sessions", `${Date.now()}`);
+  
+        // Store page visit
+        await setDoc(sessionRef, {
+            appName: appName,
+            sessionStart: serverTimestamp(),
+            sessionEnd: null,
+            timeSpent: null
+        });
+        
+        window.addEventListener("beforeunload", async () => {
+            if (!sessionStartTime) return;
+  
+            const sessionEndTime = Date.now();
+            const timeSpent = Math.floor((sessionEndTime - sessionStartTime) / 1000);
+  
+            await updateDoc(sessionRef, {
+                sessionEnd: serverTimestamp(),
+                timeSpent: timeSpent
+            });
+  
+            console.log(`Session saved for ${appName}: ${timeSpent} seconds`);
+        });
+    });
+  </script>
+</body>
+</html>

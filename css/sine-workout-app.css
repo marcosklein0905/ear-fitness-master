@@ -1,0 +1,134 @@
+h1, h2 {
+    text-align: center;
+}
+
+#quiz-config, #quiz, #result {
+
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: var(--box-shadow);
+    width: 70%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+#quiz-config input[type="number"] {
+    display: block;
+    color: var(--color-dark);
+    width: 98%;
+    margin: 10px 0;
+    font-size: 13px;
+    background-color: var(--color-light);
+}
+
+/* slider */
+
+#quiz-config input[type="range"] {
+
+    display: block;
+    background-color: var(--color-white);
+    accent-color: var(--color-primary);
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 1em;
+}
+
+/* For Webkit browsers */
+#quiz-config input[type="range"]::-webkit-slider-runnable-track {
+  background: var(--color-gray-light); /* Light gray track */
+  /* height: 8px; */
+  border-radius: 4px;
+}
+
+/* For Firefox */
+#quiz-config input[type="range"]::-moz-range-track {
+  background:var(--color-gray-light);
+  /* height: 8px; */
+  border-radius: 4px;
+}
+
+/* For Edge */
+#quiz-config input[type="range"]::-ms-track {
+  background: var(--color-gray-light);
+  height: 8px;
+  /* border-radius: 4px; */
+  color: transparent; /* Hide the default track color in Edge */
+}
+
+/* For Webkit browsers */
+#quiz-config input[type="range"]::-webkit-slider-thumb {
+
+  border-radius: 50%; /* Circular thumb */
+  cursor: pointer;
+
+}
+
+/* For Firefox */
+#quiz-config input[type="range"]::-moz-range-thumb {
+
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* For Edge */
+#quiz-config input[type="range"]::-ms-thumb {
+
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+
+/* end of slider */
+
+
+#quiz-config label, select, input[type="file"], button {
+    display: block;
+    width: 100%;
+    margin: 8px 0;
+    font-size: 16px;
+}
+
+#quiz-config select, input[type="number"], input[type="file"], input[type="range"], button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--color-dark);
+    background-color: var(--color-light);
+    color: var(--color-dark);
+}
+
+.start-quiz {
+    margin-top: 2em;
+    font-size: 1.3em;
+}
+
+#quiz button, #quit button {
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1.3em;
+}
+
+#quiz button:hover {
+    background-color: #555;
+}
+
+#quiz button:disabled {
+    cursor: not-allowed;
+    background-color: #777;
+}
+
+#answers button {
+    margin: 5px;
+    width: calc(50% - 10px);
+    display: inline-block;
+}
+
+#custom-mode {
+    border: 1px dashed #444;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.hidden {
+    display: none;
+}
+

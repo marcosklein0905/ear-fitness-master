@@ -1,0 +1,444 @@
+:root {
+  --font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --font-size-base: 16px;
+  --font-size-label: 0.9rem;
+  --color-bg: #f5f5f5;
+  --color-text: #333;
+  --color-border: #ccc;
+  --color-accent: #007bff;
+  --btn-bg: #007bff;
+  --btn-hover-bg: #0056b3;
+  --btn-text: #fff;
+  --slider-track: #ddd;
+  --slider-thumb: #007bff;
+  --slider-thumb-hover: #0056b3;
+  --padding: 1rem;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+}
+
+  .logo {
+    font-size: 2rem;
+  }
+
+  .logo-emphasis {
+      color: var(--color-primary);
+  }
+
+  .material-symbols-outlined {
+    color: var(--color-primary);
+    margin-right: 0.3em;
+  }
+
+
+.top-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: flex-start;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 1em;
+  width: 100%;
+}
+
+.top-container.hidden {
+  display: none;
+}
+
+.top-container label {
+  display: block;
+  font-size: var(--font-size-label);
+  font-weight: 100;
+  margin-bottom: 0.25em;
+  color: #222;
+}
+
+.top-container select {
+  appearance: none;
+  width: 100%;
+  padding: 0.5em;
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+  background-color: #fff;
+  font-size: 1rem;
+  font-family: var(--font-family);
+  color: var(--color-text);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='gray'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.5em center;
+  background-size: 1em;
+}
+
+.top-container select:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+  outline: none;
+}
+
+.top-container option {
+  font-family: var(--font-family);
+  font-size: 1rem;
+  padding: 0.5em;
+}
+
+
+
+.open-settings {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1100;
+}
+
+.open-settings.hidden {
+  display: none;
+}
+
+
+.used-frequencies {
+
+    display: none;
+    border: 1px solid var(--color-gray-light);
+    border-radius: 1em;
+
+    position: absolute;
+    top: 100px;
+    left: 20px;
+    overflow-wrap: break-word;
+    line-height: 1.4;
+    max-width: 180px;
+    padding: 0.7em;
+}
+
+#app-container {
+  margin: 3em;
+}
+  
+  #feedback {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  #score {
+    margin-top: 10px;
+    font-size: 16px;
+  }
+  
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--modal-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal.hidden {
+    display: none;
+  }
+  
+  .modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+  }
+  
+  .modal-content button {
+    margin: 10px;
+  }
+
+canvas#confettiCanvas {
+    display: block; /* remove inline/extra spacing */
+    background: transparent;
+  }
+
+  /* Slider */
+
+  /* Styling for the switch container */
+.mode-switch {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+/* Base styling for the switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Styling for the slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 25px;
+  transition: background-color 0.4s;
+}
+
+/* Circle inside the slider */
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 19px;
+  width: 19px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.4s;
+}
+
+/* When the checkbox is checked */
+input:checked + .slider {
+  background-color: #4caf50;
+}
+
+input:checked + .slider:before {
+  transform: translateX(25px);
+}
+
+/* TOOLTIP STYLES */
+
+.back {
+  text-decoration: none;
+  color: var(--color-primary);
+  
+}
+
+.show-used-frequencies {
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+  align-items: center;
+  font-size: 12px;
+  background: var(--color-white);
+
+  position: relative; 
+  display: inline-block; 
+  padding: 10px;
+  cursor: pointer;
+  margin-left: 2em;
+  transition: background 0.3s ease-in-out;
+}
+
+
+.show-used-frequencies span {
+  border: 1px solid var(--color-primary);
+  font-size: 14px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.show-used-frequencies span:hover {
+  border: 1px solid var(--color-primary-light);
+  color: var(--color-primary-light);
+  transition: all 500ms ease;
+}
+
+.tooltip {
+visibility: hidden;
+width: 220px;
+background: rgba(0, 0, 0, 0.85); /* Alpha transparency */
+color: white;
+text-align: center;
+padding: 8px 10px;
+border-radius: 6px;
+position: absolute;
+bottom: 120%;
+left: 50%;
+transform: translateX(-50%) scale(0.95);
+opacity: 0;
+transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+pointer-events: none;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Show tooltip smoothly on hover */
+.show-used-frequencies:hover .tooltip {
+visibility: visible;
+opacity: 1;
+transform: translateX(-50%) scale(1);
+}
+
+
+button.active-path {
+background-color: #4caf50;
+color: white;
+border: 2px solid #388e3c;
+}
+
+button {
+  align-items: center;
+  background-color: #fff;
+  border: 2px solid #000;
+  box-sizing: border-box;
+  color: #000;
+  cursor: pointer;
+  display: inline-flex;
+  fill: #000;
+  font-family: Inter,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  height: 48px;
+  justify-content: center;
+  letter-spacing: -.8px;
+  line-height: 24px;
+  min-width: 140px;
+  outline: 0;
+  padding: 0 17px;
+  text-align: center;
+  text-decoration: none;
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-bottom: 0.3em;
+}
+
+.reset-default {
+  font-size: 12px;
+  background: rgb(239, 239, 233);
+  margin-top: 0.3em;
+  min-width: 60px;
+
+}
+
+button:focus {
+  color: #171e29;
+}
+
+button:hover {
+  border-color: #06f;
+  color: #06f;
+  fill: #06f;
+}
+
+button:active {
+  border-color: #06f;
+  color: #06f;
+  fill: #06f;
+}
+
+/* Slider Styles */
+#frequency-slider {
+  width: 100%;
+  height: 6px;
+  background: var(--slider-track);
+  border-radius: 3px;
+  outline: none;
+  transition: background 0.3s ease-in-out;
+  margin-top: 1em;
+}
+
+#frequency-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: var(--slider-thumb);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#frequency-slider::-webkit-slider-thumb:hover {
+  background: var(--slider-thumb-hover);
+  transform: scale(1.1);
+}
+
+#frequency-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: var(--slider-thumb);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#frequency-slider::-moz-range-thumb:hover {
+  background: var(--slider-thumb-hover);
+  transform: scale(1.1);
+}
+
+/* RADIO */
+
+
+  /* Radio buttons */
+
+  /* Style the gain options container */
+#gain-options-container {
+  display: flex; /* Use flexbox to layout the radios */
+  flex-wrap: wrap; /* Allow wrapping to the next line */
+  gap: 10px; /* Add space between radio buttons */
+  margin-top: 10px; /* Add some margin for spacing */
+}
+
+/* Style individual radio button wrappers */
+#gain-options-container div {
+  display: flex;
+  align-items: center; /* Align radio button and label */
+  padding: 5px 10px;
+  border: 1px solid #ccc; /* Add a light border */
+  border-radius: 5px; /* Round the corners */
+  background-color: #f9f9f9; /* Light background for better visibility */
+  transition: background-color 0.2s, border-color 0.2s;
+  cursor: pointer; /* Change cursor on hover */
+}
+
+/* Highlight on hover */
+#gain-options-container div:hover {
+  background-color: #eaeaea;
+  border-color: #bbb;
+}
+
+/* Style the radio button */
+#gain-options-container input[type="radio"] {
+  margin-right: 5px; /* Space between button and label */
+  cursor: pointer; /* Pointer for radio buttons */
+}
+
+/* Style the label */
+#gain-options-container label {
+  font-size: 14px;
+  color: #333;
+  cursor: pointer; /* Pointer for label */
+}
+
+
+@media (min-width: 768px) {
+  button {
+    min-width: 170px;
+  }
+}

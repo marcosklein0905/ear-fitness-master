@@ -1,0 +1,105 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+.login-form body {
+    margin: 0;
+    font-family: 'Poppins';
+}
+
+.login-form .left-col {
+    background: #5200FF;
+    color: white;
+    position: relative;
+    text-align: center;
+}
+
+.login-form .left-col:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.33;
+    background-image: url('../img/ear_fitness_icon.png');
+    background-size: cover;
+    background-position: 100%;
+}
+
+.login-form .content {
+    position: relative;
+}
+
+.login-form .left-col, .right-col {
+    padding: 6.75rem 8vw;
+}
+
+small, .login-subtitle {
+    color: whitesmoke;
+}
+
+.login-form h1 {
+    margin: 0;
+    font-family: 'Bebas Neue';
+    font-weight: normal;
+    font-size: 4rem;
+    line-height: 1.2em;
+}
+
+.login-form p {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+.login-form label {
+    display: block;
+    font-size: 1.125rem;
+    margin-bottom: .77rem;
+}
+
+.login-form input {
+    width: 100%;
+    background: #EDEDED;
+    border: 1px solid #C7C7C7;
+    font-size: 1rem;
+    padding: .75rem;
+    /* outline: none;  */
+    margin-bottom: 2.5em;
+}
+
+.login-form button {
+    width: 100%;
+    background: #5200FF;
+    padding: 1em;
+    color: white;
+    border: none;
+    font-size: 1.125rem;
+    cursor: pointer;
+    margin-bottom: 0.7em;
+}
+
+.login-form .logo-text {
+    text-transform: uppercase;
+    letter-spacing: .8rem;
+}
+
+.login-form .logo-text span {
+    color: yellow;
+}
+
+
+
+@media only screen and (min-width: 770px) {
+    .login-form .form {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        gap: 2em;
+    }
+
+    .form-button {
+        margin: 1.6em;
+    }
+}
+

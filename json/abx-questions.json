@@ -1,0 +1,93 @@
+[
+    {
+        "subject": "wav x flac",
+        "question": "Estamos testando a diferença de um qualidade entre um áudio .wav (16bits / 44100Hz) com um .flac",
+        "file1": "audio/dua-lipa-flac.flac",
+        "file2": "audio/dua-lipa-24-44100.wav"
+    },
+    {
+        "subject": "wav x mp3(96kbps)",
+        "question": "Estamos testando a diferença de um qualidade entre um áudio .wav (24bits / 44100Hz) com um mp3 de 96kbps",
+        "file1": "audio/BB_mp3_96kbpsCBR.mp3",
+        "file2": "audio/BB_wav_24_44100.wav"
+    },
+    {
+        "subject": "wav x mp3(128kbps)",
+        "question": "Estamos testando a diferença de um qualidade entre um áudio .wav (24bits / 44100Hz) com um mp3 de 128kbps",
+        "file1": "audio/BB_wav_24_44100.wav",
+        "file2": "audio/BB_mp3_128kbpsCBR.mp3"
+    },
+    {
+        "subject": "wav x mp3(192kbps)",
+        "question": "Estamos testando a diferença de um qualidade entre um áudio .wav (24bits / 44100Hz) com um mp3 de 192kbps",
+        "file1": "audio/BB_wav_24_44100.wav",
+        "file2": "audio/BB_mp3_192kbpsCBR.mp3"
+    },
+    {
+        "subject": "wav x mp3(320kbps)",
+        "question": "Estamos testando a diferença de um qualidade entre um áudio .wav (24bits / 44100Hz) com um mp3 de 320kbps",
+        "file1": "audio/BB_wav_24_44100.wav",
+        "file2": "audio/BB_mp3_320kbpsCBR.mp3"
+    },
+    {
+        "subject": "wav x mp3(96kbps)-voz",
+        "question": "Estamos testando a diferença de um qualidade entre um áudio .wav (24bits / 44100Hz) com um mp3 de 96kbps",
+        "file1": "audio/Parsons_mp3_96kbpsCBR.mp3",
+        "file2": "audio/Parsons_wav_24_44100.wav"
+    },
+    {
+        "subject": "wav x mp3(56kbps)-voz",
+        "question": "Estamos testando a diferença de um qualidade entre um áudio .wav (24bits / 44100Hz) com um mp3 de 56kbps",
+        "file1": "audio/Parsons_wav_24_44100.wav",
+        "file2": "audio/Parsons_mp3_56kbpsCBR.mp3"
+    },
+    {
+        "subject": "wav x mp3(96kbps)- violao SS",
+        "question": "Estamos testando a diferença de um qualidade entre um áudio .wav (24bits / 44100Hz) com um mp3 de 96kbps em um violão de aço",
+        "file1": "audio/acousticGTR_mp3_96kbpsCBR.mp3",
+        "file2": "audio/acousticGTR_wav_24_44100.wav"
+    },
+    {
+        "subject": "wav x mp3(128kbps)- violao SS",
+        "question": "Estamos testando a diferença de um qualidade entre um áudio .wav (24bits / 44100Hz) com um mp3 de 128kbps em um violão de aço",
+        "file1": "audio/acousticGTR_wav_24_44100.wav",
+        "file2": "audio/acousticGTR_mp3_128kbpsCBR.mp3"
+    },
+    {
+        "subject": "wav x mp3(320kbps)- violao SS",
+        "question": "Estamos testando a diferença de um qualidade entre um áudio .wav (24bits / 44100Hz) com um mp3 de 320kbps em um violão de aço",
+        "file1": "audio/acousticGTR_wav_24_44100.wav",
+        "file2": "audio/acousticGTR_mp3_320kbpsCBR.mp3"
+    },
+    {
+        "subject": "compressão dinâmica - violao SS",
+        "question": "Estamos testando a preceção de compressão dinâmica em uma gravação de violão de aço. Um deles tem compressão dinâmica aplicada.",
+        "file1": "audio/acousticGTR_compression.wav",
+        "file2": "audio/acousticGTR_wav_24_44100.wav"
+    },
+    {
+        "subject": "compressão dinâmica - violao nylon",
+        "question": "Estamos testando a preceção de compressão dinâmica em uma gravação de violão de nylonm. Um deles tem compressão dinâmica aplicada.",
+        "file1": "audio/nyonGTR_wav_24_44100.wav",
+        "file2": "audio/nyonGTR_wav_24_44100_compression.wav"
+    },
+
+    {
+        "subject": "saturação (voz)",
+        "question": "Um dos arquivos tem saturação aplicada",
+        "file1": "audio/Parsons_wav_24_44100.wav",
+        "file2": "audio/Parsons_wav_24_44100_saturated.wav"
+    },
+    {
+        "subject": "saturação (bateria)",
+        "question": "Um dos arquivos tem uma leve saturação aplicada",
+        "file1": "audio/batera-gravity-orig.wav",
+        "file2": "audio/batera-gravity-satur.wav"
+    },
+    {
+        "subject": "saturação em senóides",
+        "question": "Uma das senóides de 220Hz tem uma leve saturação",
+        "file1": "audio/sine220clean.wav",
+        "file2": "audio/sine220satur.wav"
+    }
+]

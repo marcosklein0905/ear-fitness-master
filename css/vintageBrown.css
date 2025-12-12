@@ -1,0 +1,185 @@
+:root {
+    --bg-color: rgb(243, 158, 96); /* Light vintage background */
+    --text-color: rgb(124, 68, 79); /* Darker text for contrast */
+    --container-bg: rgb(225, 106, 84); /* Mid-tone container background */
+    --button-bg: rgb(159, 82, 85); /* Button background */
+    --button-text: #fff; /* Button text color */
+    --modal-bg: rgba(124, 68, 79, 0.8); /* Semi-transparent modal background */
+    --slider-track-color: rgb(159, 82, 85); /* Slider track */
+    --slider-thumb-color: rgb(124, 68, 79); /* Slider thumb */
+    --slider-thumb-hover: rgb(243, 158, 96); /* Hover effect for slider thumb */
+    --slider-thumb-border: rgb(225, 106, 84); /* Thumb border */
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Georgia', serif; /* Vintage-style font */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    animation: fadeIn 1s ease-in; /* Smooth fade-in animation */
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.top-container {
+    background-color: var(--container-bg);
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    top: 0;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 10px 20px;
+    z-index: 1000;
+    padding: 10px 0;
+    animation: slideDown 0.8s ease-out; /* Slide down effect */
+}
+
+.quiz-container {
+    width: 90%;
+    max-width: 800px;
+    background-color: var(--container-bg);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Courier New', monospace;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--slider-thumb-hover);
+    transform: scale(1.05); /* Subtle grow effect */
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+button.active-path {
+    background-color: rgb(124, 68, 79);
+    color: white;
+    border: 2px solid var(--button-bg);
+    animation: pulse 1.2s infinite; /* Pulsing animation */
+}
+
+.audio-controls {
+    display: flex;
+    gap: 5px;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 8px;
+    background-color: var(--container-bg);
+}
+
+.reset-default {
+    margin: 10px;
+    background-color: rgb(124, 68, 79);
+    padding: 5px;
+    border-radius: 50%;
+    height: 30px;
+    width: 50px;
+}
+
+.slider-container {
+    margin: 20px 0;
+}
+
+#frequency-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 80%;
+    height: 10px;
+    background: linear-gradient(to right, rgb(159, 82, 85), rgb(243, 158, 96));
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#frequency-slider:disabled {
+    cursor: not-allowed;
+    background: #e0e0e0;
+    opacity: 0.6;
+}
+
+#frequency-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--slider-thumb-color);
+    border: 2px solid var(--slider-thumb-border);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+}
+
+#frequency-slider:not(:disabled):hover::-webkit-slider-thumb {
+    background: var(--slider-thumb-hover);
+    transform: scale(1.2); /* Grow on hover */
+}
+
+#frequency-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: var(--slider-thumb-color);
+    border: 2px solid var(--slider-thumb-border);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+}
+
+#frequency-slider:not(:disabled):hover::-moz-range-thumb {
+    background: var(--slider-thumb-hover);
+    transform: scale(1.2); /* Grow on hover */
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        background-color: rgb(159, 82, 85);
+    }
+    50% {
+        transform: scale(1.1);
+        background-color: rgb(243, 158, 96);
+    }
+}

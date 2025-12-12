@@ -1,0 +1,108 @@
+[
+  {
+    "semana": 1,
+    "threshold": 89,
+    "url": "/icons/chorume.png",
+    "name": "Chorume",
+    "tooltip": "Média na Semana 1 abaixo de 90%"
+  },
+  {
+    "semana": 2,
+    "threshold": 90,
+    "url": "/icons/rotten_sandwich.png",
+    "name": "Sanduíche podre",
+    "tooltip": "Média na Semana 2 abaixo de 90%"
+  },
+  {
+    "semana": 3,
+    "threshold": 90,
+    "url": "/icons/demo_triste.png",
+    "name": "Demo Deprimido",
+    "tooltip": "Média na Semana 3 abaixo de 90%"
+  },
+  {
+    "semana": 4,
+    "threshold": 90,
+    "url": "/icons/devil_backpack.png",
+    "name": "Mochila do Capeta",
+    "tooltip": "Média na Semana 4 abaixo de 90%"
+  },
+  {
+    "semana": 5,
+    "threshold": 90,
+    "url": "/icons/fallen_angel.png",
+    "name": "Anjo Caidaço",
+    "tooltip": "Média na Semana 5 abaixo de 90%"
+  },
+  {
+    "semana": 6,
+    "threshold": 90,
+    "url": "/icons/ugly_spirit.png",
+    "name": "Espírito Esquisito",
+    "tooltip": "Média na Semana 6 abaixo de 90%"
+  },
+  {
+    "semana": 7,
+    "threshold": 90,
+    "url": "/icons/varginha.png",
+    "name": "Varginha",
+    "tooltip": "Média na Semana 7 abaixo de 90%"
+  },
+  {
+    "semana": 8,
+    "threshold": 90,
+    "url": "/icons/chupa_cabra.png",
+    "name": "Chupa Cabra",
+    "tooltip": "Média na Semana 8 abaixo de 90%"
+  },
+  {
+    "semana": 9,
+    "threshold": 90,
+    "url": "/icons/sad_warrior.png",
+    "name": "Guerreiro Triste",
+    "tooltip": "Média na Semana 9 abaixo de 90%"
+  },
+  {
+    "semana": 10,
+    "threshold": 90,
+    "url": "/icons/principe_feio.png",
+    "name": "Príncipe Feio",
+    "tooltip": "Média na Semana 10 abaixo de 90%"
+  },
+  {
+    "semana": 11,
+    "threshold": 90,
+    "url": "/icons/balde_sujo.png",
+    "name": "Balde de água suja",
+    "tooltip": "Média na Semana 11 abaixo de 90%"
+  },
+  {
+    "semana": 12,
+    "threshold": 90,
+    "url": "/icons/broken_gun.png",
+    "name": "Arma quebrada",
+    "tooltip": "Média na Semana 12 abaixo de 90%"
+  },
+  {
+    "semana": 13,
+    "threshold": 90,
+    "url": "/icons/cursed_frog.png",
+    "name": "Sapo maldito",
+    "tooltip": "Média na Semana 13 abaixo de 90%"
+  },
+  {
+    "semana": 14,
+    "threshold": 90,
+    "url": "/icons/cachorro_machucado.png",
+    "name": "Cão machucado",
+    "tooltip": "Média na Semana 14 abaixo de 90%"
+  },
+  {
+    "semana": 15,
+    "threshold": 90,
+    "url": "/icons/beelzebub.png",
+    "name": "Beelzebub",
+    "tooltip": "Média na Semana 15 abaixo de 90%"
+  }
+
+]

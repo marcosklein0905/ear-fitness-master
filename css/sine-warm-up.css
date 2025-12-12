@@ -1,0 +1,121 @@
+.middle {
+    background: var(--color-white);
+    padding: 2em;
+    border-radius: var(--border-radius-2);
+}
+
+
+.volume {
+    background-color: var(--color-light);
+    margin-top: 2em;
+    width: 40%;
+    padding: 0.7em;
+    border-radius: 0.4em;
+}
+
+.middle button {
+    display: block;
+    width: 100%;
+    margin: 8px 0;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(145deg, #6e8efb, #a777e3);
+    color: rgb(231, 217, 217);
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s ease-in-out;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    height: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.middle button:hover {
+    transform: scale(1.05); /* Grows the button slightly */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Optional: increase shadow for emphasis */
+}
+
+.middle .active {
+    background: linear-gradient(145deg, #24054b, #345ad6);
+}
+
+.middle button:disabled {
+    cursor: not-allowed;
+    background-color: #777;
+}
+
+#buttonGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Reduce min size */
+    gap: 8px; /* Slightly reduce gap */
+    width: 100%;
+    max-width: 600px;
+}
+
+#gainControl {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px 0;
+}
+
+
+select {
+width: 100%;
+padding: 10px 20px;
+margin: 8px 0;
+font-size: 16px;
+border: none;
+border-radius: 5px;
+background-color: #6e8efb;
+color: rgb(231, 217, 217);
+cursor: pointer;
+transition: background 0.3s, transform 0.2s;
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+appearance: none;
+-webkit-appearance: none;
+-moz-appearance: none;
+text-align: center;
+}
+
+select:hover {
+background-color: #a777e3;
+}
+
+select:focus {
+outline: none;
+box-shadow: 0 0 10px #719ECE;
+}
+
+
+input[type="range"] {
+    background-color: var(--color-white);
+    width: 200px;
+    height: 5px;
+    border-radius: 5px;
+    outline: none;
+    accent-color:  #a777e3;
+    
+}
+
+@media (max-width: 600px) {
+    .media {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #buttonGrid {
+        grid-template-columns: repeat(2, 1fr); /* Force 2 columns on small screens */
+    }
+}
+
+@media screen and (max-width: 350px) {
+    #buttonGrid {
+        grid-template-columns: repeat(1, 1fr); /* Single column for very small screens */
+        gap: 6px; /* Reduce gap further */
+    }
+}
+

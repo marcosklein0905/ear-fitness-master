@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+
+  <link rel="stylesheet" href="./css/default.css">
+
+  <link rel="stylesheet" href="css/utils.css">
+  <link rel="stylesheet" href="./css/audioPlayer.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+
+
+
+  <title>EQ Fitness</title>
+  <style>
+
+    .middle {
+        background: var(--color-white);
+        padding: 2em;
+        border-radius: var(--border-radius-2);
+        text-align: left;
+    }
+ 
+</style>
+</head>
+<body>
+
+<!-- TOP AREA -->
+
+<div class="container" id="dashboard-container">
+
+  <header>
+      <div class="top-area">
+          <p class="logo">ear <span  class="logo-emphasis">fitness</span> <span class="lite">lite</span></p>
+          <!-- Profile picture placeholder -->
+          
+          <div class="profile-area">
+
+              <div class="theme-btn">
+                  <span class="material-icons-sharp active">light_mode</span>
+                  <span class="material-icons-sharp">dark_mode</span>
+              </div>
+
+              <div class="profile-user">
+                  <img id="profile-pic" class="profile-img" src="img/default-avatar-profile-icon.avif" alt="Profile Picture">
+                  <input type="file" id="profile-upload" accept="image/*" style="display: none;">
+                  <p><span id="user-welcome"></span></p> <!-- Dynamic Username Display -->
+              </div>
+          </div>
+          <button id="menu-btn">
+              <span class="material-icons-sharp">menu</span>
+          </button>
+      </div> <!-- end of top area -->
+  </header>
+
+  <main>
+      <aside>
+          <button id="close-btn">
+              <span class="material-icons-sharp">close</span>
+          </button>
+          <div class="sidebar">
+
+              <a href="index.html">
+                  <span class="material-icons-sharp">dashboard</span>
+                  <h4>Dashboard</h4>
+              </a>
+              <a href="sine-warm-up.html">
+                  <span class="material-symbols-outlined">airwave</span>
+                  <h4>Sine Warm-up</h4>
+              </a>
+
+              <a href="filters.html">
+                <span class="material-symbols-outlined">filter_alt</span>
+                <h4>Filters</h4>
+              </a>
+
+              <a href="db-change.html">
+                  <span class="material-symbols-outlined">noise_aware</span>
+                  <h4>dB Change Quiz</h4>  
+              </a>
+              <a href="eq-fitness-app.html" class="active">
+                  <span class="material-symbols-outlined">graphic_eq</span>
+                  <h4>EQ Fitness Quiz</h4>
+              </a>
+              <a href="sine-workout-app.html">
+                  <span class="material-symbols-outlined">heat</span>
+                  <h4>Sinewave Trainer</h4>
+              </a>
+              <a href="abx-test-app.html">
+                  <span class="material-symbols-outlined">psychology_alt</span>
+                  <h4>Teste ABX</h4>
+              </a>
+
+              <a href="plan.html">
+                <span class="material-symbols-outlined">auto_stories</span>
+                <h4>Plano de estudos</h4>
+              </a>
+  
+
+
+          </div>  <!-- ============== END OF SIDEBAR / NAV ===================== -->
+
+      </aside>
+
+
+      <section class="middle">
+
+
+
+        <div class="used-frequencies" id="used-frequencies" style="display: none;"></div>
+
+        
+        <div id="app-container">
+
+            
+            <div class="quiz-container">
+                <p class="logo"><span class="material-symbols-outlined">graphic_eq</span>EQ <span  class="logo-emphasis">fitness</span> <span class="lite">lite</span></p>
+                <div>
+
+                    <!-- INÍCIO DOS SETTINGS -->
+
+                    <div class="config-wrap">
+                        <!-- Fica sempre fora da aba -->
+                        <div class="open-settings">
+                            <button id="settings-btn" aria-label="Abrir configurações">
+                            <span class="material-icons-sharp">settings</span>
+                            </button>
+                        </div>
+
+                    <div class="config-tab">
+
+                    <div>
+                        <button id="config-collapse">
+                        <span class="material-icons-sharp">close</span>
+                        </button>
+                    </div>
+
+
+                        <div>
+                            <label for="resolution">Resolução:</label>
+                            <select id="resolution">
+                            <option value="octave">1 Oitava</option>
+                            <option value="third-octave">1/3 Oitava</option>
+                            <option value="custom">Customizado</option>
+                            </select>
+                        </div>
+
+                        <div id="upload-container" style="display: none;">
+                            <label for="custom-frequencies">Upload Ccustomizado (.txt):</label>
+                            <input type="file" id="custom-frequencies" accept=".txt" />
+                        </div>
+
+                        <div>
+                            <label for="gain-comb">Boost/Cut:</label>
+                            <select id="gain-comb">
+                            <option value="boost12">+12 dB</option>
+                            <option value="cut12">-12 dB</option>
+                            <option value="boostCut12">+12 dB/-12 dB</option>
+                            <option value="boost9">+9 dB</option>
+                            <option value="cut9">-9 dB</option>
+                            <option value="boostCut9">+9 dB/-9 dB</option>
+                            <option value="boost6">+6 dB</option>
+                            <option value="cut6">-6 dB</option>
+                            <option value="boostCut6">+6 dB/-6 dB</option>
+                            <option value="boost3">+3 dB</option>
+                            <option value="cut3">-3 dB</option>
+                            <option value="boostCut3">+3 dB/-3 dB</option>
+                            <option value="all">Todas</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="quality-factor">Q</label>
+                            <select id="quality-factor">
+                            <option value="0.5">0.5 (Largo)</option>
+                            <option value="1" selected>1 (Default)</option>
+                            <option value="2">2 (Moderado)</option>
+                            <option value="5">5 (Restrito)</option>
+                            <option value="10">10 (Muito restrito)</option>
+                            </select>
+                        </div>
+                        
+
+                        <div>
+                            <label for="preset">Escolha Preset:</label>
+                            <select id="preset">
+                            <option value="">Escolha preset:</option>
+
+                            <!-- Opções serão geradas dinamicamente-->
+                            </select>
+                        </div>
+
+                        <div>
+                            <button id="reset-default" class="reset-default">Default</button>
+                        </div>
+
+
+                        <div style="display: none">
+                            <label for="quest-gen-type">Generation Mode:</label>
+                            <select id="quest-gen-type">
+                            <option value="random" selected>Random</option>
+                            <option value="adaptive">Adaptive</option>
+                            <option value="progressive">Progressive</option>
+                            </select>
+                        </div>
+
+                        <div class="mode-switch">
+                            <label class="switch">
+                                <input type="checkbox" id="modeToggle">
+                                <span class="slider"></span>
+                            </label>
+                            <span id="modeText">Modo Pink Noise</span>
+                        </div>
+
+                    </div> 
+
+                    
+            </div> <!-- FIM DOS CONFIG WRAP -->
+
+                <div id="show-used-frequencies" class="show-used-frequencies">
+                    <span class="material-symbols-outlined">question_mark</span>
+                    <div class="tooltip" id="tooltip-text">Loading...</div>
+                </div>
+
+
+
+
+                <div id="feedback"></div>
+                
+                <div class="quiz-controls">
+                <div class="audio-controls">
+                    <button id="play">Tocar</button>
+                    <button id="stop">Parar</button>
+                    <button id="apply-eq">EQ Questão</button>
+                    <button id="my-eq">Comparar EQ</button>
+                    <button id="bypass">Bypass</button>
+                </div>
+
+                <div class="audio-player-ui" style="visibility: hidden;">
+                
+                    <canvas id="waveform" width="800" height="100"></canvas>
+                        <div class="audio-controls">
+
+                            <div class="upload-button">
+                                <input type="file" id="audioFile" accept="audio/*">
+                            </div>
+
+                            
+                        </div>    
+                </div>
+
+
+                    <div class="question-buttons">
+                        <button id="next-question" style="display: none;">Próxima</button>
+                        <button id="check-answer" disabled>Conferir resposta</button>
+                        <button id="quit-quiz" disabled>Finalizar Quiz</button>
+                    </div>
+                    
+                </div>
+
+
+                <div id="gain-options-container">
+                <!-- Geração dinâmico dos botões radio -->
+                </div>
+            
+                <div class="slider-container">
+                    <div id="feedback"></div>
+                    <input type="range" id="frequency-slider" min="0" max="100" step="1" disabled>
+                    <span id="frequency-label">Frequência: 0Hz</span>
+                </div>
+            
+                <div id="score"></div>
+            </div>
+            
+            <!-- Modal -->
+            <div id="end-modal" class="modal hidden">
+                <div class="modal-content">
+                <h2>Quiz Finalizado</h2>
+                <p id="final-score"></p>
+
+                <button id="quit-modal">Gravar score</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="progressive-info" style="visibility: hidden;">
+            <p>Current Level: <span id="current-level">1</span></p>
+            <div id="star-container">
+            <!-- Stars will be rendered dynamically here -->
+            </div>
+            <button id="reset-progress">Reset Progress</button>
+        </div>
+        
+        
+
+        <button id="toggle-error-stats" style="display: none;">Show Error Stats</button>
+        <div id="error-stats" style="display: none;">
+            
+            <h4>Error Stats</h4>
+            <div id="error-stats-content">
+            <!-- Error stats will be dynamically added here -->
+            </div>
+            <button id="reset-stats">Reset Stats</button>
+        </div>
+
+    </div> <!-- FIM DA DIV APP CONTAINER  -->
+
+      </section>
+
+      <section class="right">
+        <div class="activity-feed">
+            <h3>Atividades recentes</h3>
+            <div id="activity-list"></div>
+        </div>
+        
+    
+        <div id="user-list-container">
+            <h4>Usuários registrados</h4>
+            <div id="user-list"></div>
+        </div>
+    </section>
+
+  </div> <!-- ============== END OF CONTAINER ===================== -->
+
+  </main>
+
+    <!-- FOOTER -->
+
+    <footer class="fixed-footer">
+        <div class="cc-license">
+            <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://ear-fitness.netlify.app/"><span class="footer-emphasis">Ear Fitness</span></a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.instagram.com/guilebarros/"><span class="footer-emphasis">Guilherme Barros</span></a> is licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt="cc-license"></a></p>
+        </div>
+    </footer>
+
+   <!-- END OF FOOTER -->
+
+
+    <script src="js/eq-fitness-data-tracking.js" type="module"></script>
+
+  <script src="quizLogic.js" type="module"></script>
+  <script src="audioMain.js" type="module"></script>
+  <script src="modeSwitch.js"></script>
+
+
+  <script type="module" src="js/auth.js"></script>
+  <script type="module" src="js/fetchData.js"></script>
+  <script src="js/darkLightTheme.js"></script>
+
+  <!-- Barra de configuração  mostrar / esconder -->
+
+  <script>
+    const configCollapse = document.getElementById('config-collapse');
+    const settingsBtn = document.getElementById('settings-btn');
+    const openSettingsDiv = document.querySelector('.open-settings');
+    const configTab = document.querySelector('.config-tab');
+
+    settingsBtn.addEventListener('click', () => {
+      configTab.classList.remove('hidden');
+      openSettingsDiv.classList.add('hidden');
+    });
+
+    configCollapse.addEventListener('click', () => {
+      configTab.classList.add('hidden');
+      openSettingsDiv.classList.remove('hidden');
+    });
+
+    // On page load: hide open-settings if top-container is showing
+    if (!configTab.classList.contains('hidden')) {
+      openSettingsDiv.classList.add('hidden');
+    }
+  </script>
+
+  <script type="module">
+    import { db, auth } from "../firebaseInfo/firebase.js";
+    import { doc, setDoc, updateDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
+  
+    let sessionStartTime;
+    let appName = window.location.pathname.split("/").pop().replace(".html", "");
+  
+    auth.onAuthStateChanged(async (user) => {
+        if (!user) return;
+  
+        sessionStartTime = Date.now(); // Start tracking time
+        console.log(`User landed on ${appName}`);
+  
+        // Reference to the session in Firestore
+        const sessionRef = doc(db, "users", user.uid, "sessions", `${Date.now()}`);
+  
+
+    });
+  </script>
+</body>
+</html>

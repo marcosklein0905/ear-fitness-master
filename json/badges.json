@@ -1,0 +1,91 @@
+[
+  {
+    "badgeName": "Medalha de Bronze",
+    "weeks": [1, 2, 3, 4, 5],
+    "iconUrl": "/icons/bronze_medal.png",
+    "app": "both",
+    "minLastScore": 90,
+    "tooltip": "Semanas 1-5 com ≥ 90% do último score para ganhar essa medalha."
+  },
+  {
+    "badgeName": "Medalha de Prata",
+    "weeks": [6, 7, 8, 9, 10],
+    "iconUrl": "/icons/silver_medal.png",
+    "app": "both",
+    "minLastScore": 90,
+    "tooltip": "Semanas 6-10 com ≥ 90% no último score para ganhar essa medalha."
+  },
+  {
+    "badgeName": "Medalha de Ouro",
+    "weeks": [11, 12, 13, 14],
+    "iconUrl": "/icons/gold_medal.png",
+    "app": "both",
+    "minLastScore": 90,
+    "tooltip": "Semanas 6-10 com ≥ 90% no último score para ganhar essa medalha."
+  },
+  {
+    "badgeName": "Aprendiz Senoidal",
+    "weeks": [5],
+    "iconUrl": "/icons/sine_apprentice.png",
+    "app": "Sine Wave Trainer",
+    "minLastScore": 90,
+    "tooltip": "Semana 5 no Sine Wave Trainer com mais de ≥ 90% no último score para ganhar esse personagem"
+  },
+  {
+    "badgeName": "Aprendiz EQ",
+    "weeks": [5],
+    "iconUrl": "/icons/eq_apprentice.png",
+    "app": "EQ Fitness",
+    "minLastScore": 90,
+    "tooltip": "Semana 5 no EQ Fitness com ≥ 90% no último score para ganhar esse personagem."
+  },
+  {
+    "badgeName": "Mestre da Música",
+    "weeks": [11],
+    "iconUrl": "/icons/music_master.png",
+    "app": "EQ Fitness",
+    "minLastScore": 100,
+    "tooltip": "Semana 11 com 100% no último score para ganhar esse personagem."
+  },
+  {
+    "badgeName": "Princesa da Música",
+    "weeks": [12],
+    "iconUrl": "/icons/music_princess.png",
+    "app": "EQ Fitness",
+    "minLastScore": 100,
+    "tooltip": "Semana 12 com 100% no último score para ganhar esse personagem."
+  },
+  {
+    "badgeName": "EQ Grão Mestre",
+    "weeks": [13],
+    "iconUrl": "/icons/grao_mestre.png",
+    "app": "EQ Fitness",
+    "minLastScore": 100,
+    "tooltip": "Semana 13 com 100% no último score para ganhar esse personagem."
+  },
+  {
+    "badgeName": "Anjo Senoidal",
+    "weeks": [12, 13, 14, 15],
+    "iconUrl": "/icons/music_angel.png",
+    "app": "Sine Wave Trainer",
+    "minLastScore": 100,
+    "tooltip": "Semana 12-15 com 100% no último score para ganhar esse personagem."
+  },
+  {
+    "badgeName": "Mago do EQ",
+    "weeks": [14],
+    "iconUrl": "/icons/wizard.png",
+    "app": "EQ Fitness",
+    "minLastScore": 100,
+    "tooltip": "Semana 14 com 100% no úlitmo score para ganhar esse personagem."
+  },
+
+  {
+    "badgeName": "Music God",
+    "weeks": [15],
+    "iconUrl": "/icons/music_god.png",
+    "app": "EQ Fitness",
+    "minLastScore": 100,
+    "tooltip": "Semana 15 com 100% no último score para ganhar esse personagem."
+  }
+]

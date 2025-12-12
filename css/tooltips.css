@@ -1,0 +1,58 @@
+/* TOOLTIP STYLES */
+
+.back {
+  text-decoration: none;
+  color: var(--color-primary);
+  
+}
+
+.explain-me {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
+  position: relative; 
+  display: inline-block; 
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+
+.explain-me span {
+  border: 1px solid var(--color-primary);
+  font-size: 17px;
+  border-radius: 50%;
+  cursor: pointer;
+  
+}
+
+.explain-me span:hover {
+  border: 1px solid var(--color-primary-light);
+  color: var(--color-primary-light);
+  transition: all 500ms ease;
+}
+
+.tooltip {
+visibility: hidden;
+width: 340px;
+background: rgba(0, 0, 0, 0.85); /* Alpha transparency */
+color: white;
+text-align: center;
+padding: 8px 10px;
+border-radius: 6px;
+position: absolute;
+bottom: 100%;
+left: 50%;
+transform: translateX(-50%) scale(0.95);
+opacity: 0;
+transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+pointer-events: none;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Show tooltip smoothly on hover */
+.explain-me:hover .tooltip {
+visibility: visible;
+opacity: 1;
+transform: translateX(-50%) scale(1);
+}

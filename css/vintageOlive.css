@@ -1,0 +1,309 @@
+:root {
+    --bg-color: rgb(233, 238, 217); /* Light Olive Background */
+    --text-color: rgb(84, 71, 63); /* Dark Olive Text */
+    --container-bg: rgb(203, 210, 164); /* Softer Olive Green for Containers */
+    --button-bg: rgb(154, 126, 111); /* Earthy Brown Buttons */
+    --button-text: rgb(233, 238, 217); /* Contrasting Light Text */
+    --modal-bg: rgba(84, 71, 63, 0.8); /* Olive Shadow Overlay */
+    --slider-track-color: rgb(203, 210, 164); /* Olive Green Slider Track */
+    --slider-thumb-color: rgb(154, 126, 111); /* Earthy Brown Slider Thumb */
+    --slider-thumb-hover: rgb(84, 71, 63); /* Darker Brown for Hover Effect */
+    --slider-thumb-border: rgb(233, 238, 217); /* Light Thumb Border */
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Courier New', Courier, monospace; /* Vintage font feel */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: background-color 0.5s ease-in-out; /* Smooth transition */
+}
+
+.top-container {
+    background-color: #efebeb;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    padding: 20px;
+    top: 0;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    z-index: 1000;
+  }
+
+  .top-container.hidden {
+  display: none;
+}
+
+.open-settings {
+  display: inline;
+}
+
+.open-settings.hidden {
+  display: none;
+}
+
+
+button {
+    padding: 10px 20px;
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.05); /* Slight enlarge on hover */
+    background-color: var(--slider-thumb-hover); /* Darker hover effect */
+}
+
+button:active {
+    transform: scale(0.98); /* Press-in effect */
+}
+
+button.pulsate {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 5px var(--button-bg);
+    }
+    50% {
+        box-shadow: 0 0 20px var(--button-bg);
+    }
+}
+
+/* Containers */
+.quiz-container {
+    width: 90%;
+    max-width: 800px;
+    background-color: var(--container-bg);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Slider */
+#frequency-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    margin-top: 2em;
+    width: 80%;
+    height: 8px;
+    background: rgb(155, 138, 138);
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#frequency-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--slider-thumb-color);
+    border: 2px solid var(--slider-thumb-border);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+}
+
+#frequency-slider:not(:disabled):hover::-webkit-slider-thumb {
+    background: var(--slider-thumb-hover);
+    transform: scale(1.1);
+}
+
+/* Radio buttons */
+#gain-options-container div {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    border: 1px solid var(--slider-track-color);
+    border-radius: 5px;
+    background-color: var(--slider-thumb-border);
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+#gain-options-container div:hover {
+    background-color: var(--slider-thumb-hover);
+}
+
+/* Stars */
+.star-icon {
+    width: 24px;
+    height: 24px;
+    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.2));
+}
+
+#star-container {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+/* Feedback */
+#feedback {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--slider-thumb-hover);
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--modal-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal.hidden {
+    display: none;
+  }
+  
+  .modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+  }
+  
+  .modal-content button {
+    margin: 10px;
+  }
+
+/* Styling for the switch container */
+.mode-switch {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+  }
+  
+  /* Base styling for the switch */
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* Styling for the slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #483c3c;
+    border-radius: 25px;
+    transition: background-color 0.4s;
+  }
+  
+  /* Circle inside the slider */
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 19px;
+    width: 19px;
+    left: 3px;
+    bottom: 3px;
+    background-color: rgb(134, 116, 116);
+    border-radius: 50%;
+    transition: transform 0.4s;
+  }
+  
+  /* When the checkbox is checked */
+  input:checked + .slider {
+    background-color: var(--text-color);
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(25px);
+  }
+
+  canvas {
+    width: 90%;
+    padding: 20px;
+  }
+  
+  .show-used-frequencies {
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+    align-items: center;
+    font-size: 12px;
+    background: transparent;
+    
+    position: relative; 
+    display: inline-block; 
+    padding: 10px;
+    cursor: pointer;
+    margin-left: 2em;
+    transition: background 0.3s ease-in-out;
+    }
+    
+    
+    .show-used-frequencies span {
+    border: 1px solid var(--color-primary);
+    font-size: 14px;
+    border-radius: 50%;
+    cursor: pointer;
+    }
+    
+    .show-used-frequencies span:hover {
+    border: 1px solid var(--color-primary-light);
+    color: var(--color-primary-light);
+    transition: all 500ms ease;
+    }
+    
+    .tooltip {
+    visibility: hidden;
+    width: 220px;
+    background: rgba(0, 0, 0, 0.85); /* Alpha transparency */
+    color: white;
+    text-align: center;
+    padding: 8px 10px;
+    border-radius: 6px;
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%) scale(0.95);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    pointer-events: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* Show tooltip smoothly on hover */
+    .show-used-frequencies:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+    }
+    

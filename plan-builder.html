@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Criador de Plano de Estudos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f3f3;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    .card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 600px;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .radio-group, .grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+    .radio-group label, .grid label {
+      font-weight: normal;
+    }
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      color: #fff;
+      cursor: pointer;
+    }
+    button.primary {
+      background: #2563eb;
+    }
+    button.primary:hover {
+      background: #1e4db7;
+    }
+    button.success {
+      background: #16a34a;
+    }
+    button.success:hover {
+      background: #128a3f;
+    }
+    button.danger {
+      background: #dc2626;
+    }
+    button.danger:hover {
+      background: #a71d1d;
+    }
+    #weeksPreview .week-item {
+      background: #fafafa;
+      border: 1px solid #ddd;
+      padding: 10px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Criador de Plano de Estudos</h1>
+
+  <div class="card">
+    <label>Nome do Plano</label>
+    <input id="planName" type="text" placeholder="Ex: Cortes de 12dB" />
+
+    <label>Semana</label>
+    <input id="drillName" type="text" placeholder="Semana 1" />
+
+    <label>Sessões de SineWave Trainer</label>
+    <input id="sineSessions" type="number" value="5" />
+
+    <label>Sessões de EQ Fitness</label>
+    <input id="eqSessions" type="number" value="5" />
+
+    <label>Modo do SineWave Trainer</label>
+    <select id="sineMode" onchange="toggleCustomFreqs()">
+      <option value="easy">easy</option>
+      <option value="expert">expert</option>
+      <option value="custom">custom</option>
+    </select>
+
+    <div id="customFreqsWrapper" style="display:none;">
+      <label>Frequências (separadas por vírgula)</label>
+      <input id="customFreqs" type="text" placeholder="250, 500, 1000, 2000" />
+    </div>
+
+    <label>Preset do EQ Fitness</label>
+    <input id="eqPreset" type="text" placeholder="Número ou None" />
+
+    <label>Modo de Playback do EQ Fitness</label>
+    <div class="radio-group">
+      <label><input type="radio" name="eqPlayback" value="pink-noise" checked /> pink-noise</label>
+      <label><input type="radio" name="eqPlayback" value="music" /> music</label>
+    </div>
+
+    <label>Ganho do EQ Fitness</label>
+    <div class="grid">
+      <label><input type="radio" name="eqGain" value="boost12" checked /> boost12</label>
+      <label><input type="radio" name="eqGain" value="cut12" /> cut12</label>
+      <label><input type="radio" name="eqGain" value="boostCut12" /> boostCut12</label>
+      <label><input type="radio" name="eqGain" value="boost9" /> boost9</label>
+      <label><input type="radio" name="eqGain" value="cut9" /> cut9</label>
+      <label><input type="radio" name="eqGain" value="boostCut9" /> boostCut9</label>
+      <label><input type="radio" name="eqGain" value="boost6" /> boost6</label>
+      <label><input type="radio" name="eqGain" value="cut6" /> cut6</label>
+      <label><input type="radio" name="eqGain" value="boostCut6" /> boostCut6</label>
+      <label><input type="radio" name="eqGain" value="boost3" /> boost3</label>
+      <label><input type="radio" name="eqGain" value="cut3" /> cut3</label>
+      <label><input type="radio" name="eqGain" value="boostCut3" /> boostCut3</label>
+      <label><input type="radio" name="eqGain" value="all" /> all</label>
+    </div>
+
+    <label>Resolução de Frequência</label>
+    <select id="frequencyResolution">
+      <option value="octave">octave</option>
+      <option value="third-octave">third-octave</option>
+    </select>
+
+    <div class="radio-group">
+      <button onclick="addWeek()" class="primary">Incluir Semana</button>
+      <button onclick="removeSelectedWeeks()" class="danger">Remover Selecionadas</button>
+      <button onclick="downloadPlan()" class="success">Download do Plano</button>
+    </div>
+  </div>
+
+  <div id="weeksPreview" class="card" style="margin-top:20px;"></div>
+
+  <script>
+    let plan = [];
+
+    function toggleCustomFreqs() {
+      const sineMode = document.getElementById("sineMode").value;
+      document.getElementById("customFreqsWrapper").style.display = (sineMode === "custom") ? "block" : "none";
+    }
+
+    function addWeek() {
+      const planName = document.getElementById("planName").value;
+      const drillName = document.getElementById("drillName").value;
+      const sineSessions = parseInt(document.getElementById("sineSessions").value);
+      const eqSessions = parseInt(document.getElementById("eqSessions").value);
+      const sineMode = document.getElementById("sineMode").value;
+
+      let freqs = [];
+      if (sineMode === "custom") {
+        const freqsStr = document.getElementById("customFreqs").value;
+        freqs = freqsStr.split(",").map(f => parseInt(f.trim())).filter(f => !isNaN(f));
+      }
+
+      const preset = document.getElementById("eqPreset").value || "None";
+      const playback = document.querySelector("input[name='eqPlayback']:checked").value;
+      const gain = document.querySelector("input[name='eqGain']:checked").value;
+      const frequencyResolution = document.getElementById("frequencyResolution").value;
+
+      const week = {
+        planName,
+        drillName,
+        totalSineSessionsNeeded: sineSessions,
+        totalEQSessionsNeeded: eqSessions,
+        sineWaveTrainerMode: sineMode,
+        sineWaveTrainerCustomFreq: freqs,
+        frequencyResolution,
+        EQFitnessPresetUsed: preset,
+        EQFitnessPlaybackMode: playback,
+        EQFitnessGainCombination: gain
+      };
+
+      plan.push(week);
+      renderPreview();
+    }
+
+    function renderPreview() {
+      const container = document.getElementById("weeksPreview");
+      container.innerHTML = "<h3>Semanas adicionadas:</h3>";
+      plan.forEach((w, i) => {
+        const div = document.createElement("div");
+        div.className = "week-item";
+        div.innerHTML = `<input type='checkbox' data-index='${i}'> <strong>${w.drillName}</strong> - ${w.totalSineSessionsNeeded} sessões Sine | ${w.totalEQSessionsNeeded} sessões EQ | Resolução: ${w.frequencyResolution}`;
+        container.appendChild(div);
+      });
+    }
+
+    function removeSelectedWeeks() {
+      const checkboxes = document.querySelectorAll("#weeksPreview input[type='checkbox']:checked");
+      const indexesToRemove = Array.from(checkboxes).map(cb => parseInt(cb.dataset.index));
+      plan = plan.filter((_, i) => !indexesToRemove.includes(i));
+      renderPreview();
+    }
+
+    function downloadPlan() {
+      const blob = new Blob([JSON.stringify(plan, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "novo-plano.json";
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+  </script>
+</body>
+</html>
