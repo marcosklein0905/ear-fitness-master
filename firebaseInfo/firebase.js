@@ -3,11 +3,13 @@ import { getFirestore, doc, updateDoc, setDoc, serverTimestamp, getDoc, getDocs,
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-storage.js";
 
-
 const firebaseConfig = {
-
-	// INFORMACÃO DO SEU PROJETO FIREBASE
-
+  apiKey: "AIzaSyB2nC3Oyn8rdg55oAJjp2SinJBXbhUFfFI",
+  authDomain: "ear-fit-mix.firebaseapp.com",
+  projectId: "ear-fit-mix",
+  storageBucket: "ear-fit-mix.firebasestorage.app",
+  messagingSenderId: "938147107648",
+  appId: "1:938147107648:web:d611c181e0cdf975ec60a5"
 };
 
 
